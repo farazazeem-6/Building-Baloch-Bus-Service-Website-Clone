@@ -403,31 +403,68 @@ header {
 
 
 .next-section {
-    padding: 120px 20px 80px;
-    /* min-height: 60vh; */
+    padding: 180px 20px 50px;
 }
 
 .next-content {
-    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
 
 .next-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: var(--main-font);
 }
 
 .next-content p {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 15px;
+    color: #000;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0px auto 70px;
+    font-family: var(--main-font);
 }
 
 
+/* Add Boxes  */
 
+.add-boxes {
+    padding: 0px 160px;
+
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px;
+    border-radius: 8px;
+    transition: all .3s ease;
+
+}
+
+.box:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.box .box-icon i {
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.box-text p {
+    color: #212529;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: var(--main-font);
+    text-align: center;
+}
 
 @media (max-width: 1009px) {
     header {
@@ -478,6 +515,10 @@ header {
         opacity: 1;
     }
 
+    .add-boxes {
+        padding: 0px 50px;
+    }
+
 
 }
 
@@ -495,6 +536,43 @@ header {
     }
 }
 
+
+@media(max-width:768px) {
+
+    .search-container-wrapper {
+        width: 100%;
+        max-width: 100%;
+        top: 0;
+    }
+
+    .search-container {
+        border-radius: 0px;
+    }
+
+    .home-section {
+        background: none;
+    }
+
+    .home-section-parent {
+        background: none;
+    }
+
+    .search-container {
+        margin: 0;
+    }
+
+    .box-text {
+        width: 50%;
+    }
+}
+
+@media(max-width:620px) {
+    .home-section-parent {
+        padding: 50px;
+    }
+
+}
+
 @media(max-width:500px) {
     .logo {
         width: 100px;
@@ -510,28 +588,16 @@ header {
     }
 }
 
-@media(max-width:768px) {
 
-    .search-container-wrapper {
-        width: 100%;
-        max-width: 100%;
-        top: 0;
-
+@media(max-width:450px) {
+    .home-section-text {
+        display: none;
     }
 
-    .home-section {
-        background: none;
-    }
-
-    .home-section-parent {
-        background: none;
-    }
-
-    .search-container {
-        margin: 0;
+    .next-section {
+        padding: 450px 50px 0px;
     }
 }
-
 
 @media(max-width:400px) {
     .logo {
@@ -547,5 +613,10 @@ header {
 
     header {
         padding: 13px 15px;
+    }
+
+    .box-text {
+        width: 80%;
+        margin: auto;
     }
 }
