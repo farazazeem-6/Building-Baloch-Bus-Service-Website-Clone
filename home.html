@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Tickets Online | Baloch Transport Bus Service</title>
+    <!-- Fevicon Icon  -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,400;0,700;0,800;0,900;1,300;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Remix Icon Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Box Icon Link  -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- BootStrap Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <!-- Date Picker Link  -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Link CSS  -->
+    <link rel="stylesheet" href="home.css">
+</head>
+</head>
+
+<body>
+    <!-- Header Section  -->
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="">
+
+        </div>
+        <div class="nav-buttons">
+            <ul>
+                <li><a href="" class="active"><i class="fa-solid fa-house-chimney"></i> <span>Home</span></a></li>
+                <li><a href=""><i class="fa-solid fa-users"></i> <span>About Us</span></a></li>
+                <li><a href=""><i class="fa-solid fa-envelope"></i> <span>Contact Us</span></a></li>
+                <li><a href=""><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span> </a></li>
+            </ul>
+        </div>
+
+        <div class="cargo-container">
+            <a href=""><i class="fa-solid fa-truck"></i> <span>Cargo Tracking</span></a>
+        </div>
+        <div class="ham-burger-btn">
+            <a href="#"><i class="ri-menu-line"></i></a>
+        </div>
+    </header>
+
+    <!-- Home Section  -->
+    <section class="home-section">
+        <div class="home-section-parent">
+            <div class="home-section-text">
+                <h2>Find Your Perfect Bus Journey</h2>
+                <p>Uncover seamless travel experiences and book your next adventure effortlessly with our user-friendly
+                    bus
+                    Booking apps</p>
+                <a href="#"> <span><i class="fa-solid fa-bolt"></i></span> Comfortable bus rides</a>
+            </div>
+            <div class="home-section-img">
+                <img src="/images/bus (1).png" alt="">
+            </div>
+        </div>
+
+        <!-- Booking Inputs -->
+        <div class="search-container-wrapper">
+            <div class="search-container">
+                <form class="search-form">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <div class="form-group position-relative">
+                                <label for="destination">Origin:</label>
+                                <div class="select-with-icon">
+                                    <i class="fa-regular fa-circle select-icon"></i>
+                                    <select id="origin" name="origin" class="form-control">
+                                        <option value="">Select Origin</option>
+                                        <option value="lahore">Lahore</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="islamabad">Islamabad</option>
+                                        <option value="faisalabad">Faisalabad</option>
+                                        <option value="rawalpindi">Rawalpindi</option>
+                                        <option value="peshawar">Peshawar</option>
+                                        <option value="layyah">Layyah</option>
+                                        <option value="multan">Multan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="dep-error-div"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group position-relative">
+                                <label for="destination">Destination:</label>
+                                <div class="select-with-icon">
+                                    <i class="fa-solid fa-location-dot select-icon"></i>
+                                    <select id="destination" name="destination" class="form-control">
+                                        <option value="">Select Destination</option>
+                                        <option value="lahore">Lahore</option>
+                                        <option value="karachi">Karachi</option>
+                                        <option value="islamabad">Islamabad</option>
+                                        <option value="faisalabad">Faisalabad</option>
+                                        <option value="rawalpindi">Rawalpindi</option>
+                                        <option value="peshawar">Peshawar</option>
+                                        <option value="layyah">Layyah</option>
+                                        <option value="multan">Multan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="des-error-div"></div>
+                        </div>
+
+
+
+                        <div class="col-md-2">
+                            <div class="form-group position-relative">
+                                <label for="datepicker">Date:</label>
+                                <div class="input-with-icon">
+                                    <i class="ri-calendar-2-line calendar-icon"></i>
+                                    <input type="text" id="datepicker" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="">&nbsp;</label>
+                                <button type="button" onclick="CheckValidation()" class="search-button">Search</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="next-section">
+        <div class="next-content">
+            <h2>Why Book With Us?</h2>
+            <p>Choose our bus service for a journey defined by reliability, comfort, and safety. With punctual arrivals,
+                plush seating, and a commitment to eco-friendly travel, we offer a convenient and enjoyable experience.
+                Our extensive network ensures connectivity to key destinations, all at an affordable price. Make every
+                journey a value-packed adventure with us, where your destination is as important as the ride itself.</p>
+        </div>
+    </section>
+
+
+
+    <script src="/home.js"></script>
+    <!-- jQuery (Required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Datepicker JS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get today's date in yyyy-mm-dd format
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedToday = `${yyyy}-${mm}-${dd}`;
+
+            // Set it as the input value
+            $('#datepicker').val(formattedToday);
+
+            // Initialize the datepicker
+            const fourDaysLater = new Date();
+            fourDaysLater.setDate(today.getDate() + 4);
+
+            $('#datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                startDate: today,
+                endDate: fourDaysLater,
+                calendarWeeks: true,
+                orientation: "top auto",
+                autoclose: true,
+                todayHighlight: true,
+                beforeShowDay: function (date) {
+                    return date.getMonth() === today.getMonth();
+                }
+            }).on('show', function () {
+                setTimeout(function () {
+                    $('.datepicker td.old, .datepicker td.new').remove();
+                }, 10);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
