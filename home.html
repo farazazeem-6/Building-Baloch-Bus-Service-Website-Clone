@@ -164,7 +164,10 @@
             <p>Choose our bus service for a journey defined by reliability, comfort, and safety. With punctual arrivals,
                 plush seating, and a commitment to eco-friendly travel, we offer a convenient and enjoyable experience.
                 Our extensive network ensures connectivity to key destinations, all at an affordable price. Make every
-                journey a value-packed adventure with us, where your destination is as important as the ride itself.</p>
+                journey a value-packed adventure with us, where your destination is as important as the ride itself.
+
+            </p>
+
         </div>
     </section>
 
@@ -236,6 +239,84 @@
         </div>
     </section>
 
+    <!-- Categoris and Service Text  -->
+
+
+    <section class="next-section next-section-2">
+        <div class="next-content">
+            <h2>Categories & Services</h2>
+            <p>
+                A feature which differentiates between Baloch Transport and other transportation services is the
+                multiple services such as Standard, Executive and Business class. The ticket prices & rates are
+                different for these basic and luxurious services.</p>
+
+        </div>
+    </section>
+
+    <!-- Swap Cards  -->
+
+    <section class="swap-cards-container">
+
+        <div class="carousel-container">
+
+            <div class="back-btn">
+                <button class="nav-btn prev-btn" onclick="previousCard()">
+                    <img src="/images/left-arrow.png" alt="">
+                </button>
+            </div>
+
+
+            <!-- Cards -->
+            <div class="cards-holding-container">
+
+
+
+                <div class="card active" id="card1">
+                    <div class="card-image first-card">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Executive Class</div>
+                        <div class="card-title">Latest Yutong buses falls in this category with more leg space and VOD
+                            system.</div>
+                    </div>
+                </div>
+
+                <div class="card next" id="card2">
+                    <div class="card-image second-card">
+
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Gold Class</div>
+                        <div class="card-title">Yutong Nova & Zhongtong buses falls in this category with more leg space
+                            and
+                            VOD system.</div>
+                    </div>
+                </div>
+
+                <div class="card prev" id="card3">
+                    <div class="card-image third-card">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">Business + Gold Class</div>
+                        <div class="card-title">This service type has First 9 business and other 29 Gold Class Seats.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="forward-btn">
+                <button class="nav-btn next-btn" onclick="nextCard()">
+                    <img src="/images/right-arrow (1).png" alt="">
+                </button>
+            </div>
+
+
+        </div>
+
+    </section>
+
 
 
 
@@ -251,38 +332,33 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Get today's date in yyyy-mm-dd format
+            // Get today's date
             const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const dd = String(today.getDate()).padStart(2, '0');
-            const formattedToday = `${yyyy}-${mm}-${dd}`;
 
-            // Set it as the input value
+            // Format it as yyyy-mm-dd
+            const formattedToday = today.toISOString().split('T')[0]; // ✅ format: yyyy-mm-dd
+
+            // Calculate max date (4 days from today)
+            const maxDate = new Date();
+            maxDate.setDate(today.getDate() + 4);
+
+            // Set today's date as the default value in the input
             $('#datepicker').val(formattedToday);
 
-            // Initialize the datepicker
-            const fourDaysLater = new Date();
-            fourDaysLater.setDate(today.getDate() + 4);
-
+            // Initialize datepicker with constraints
             $('#datepicker').datepicker({
                 format: 'yyyy-mm-dd',
                 startDate: today,
-                endDate: fourDaysLater,
-                calendarWeeks: true,
+                endDate: maxDate,
                 orientation: "top auto",
                 autoclose: true,
-                todayHighlight: true,
-                beforeShowDay: function (date) {
-                    return date.getMonth() === today.getMonth();
-                }
-            }).on('show', function () {
-                setTimeout(function () {
-                    $('.datepicker td.old, .datepicker td.new').remove();
-                }, 10);
+                todayHighlight: true
             });
         });
     </script>
+
+
+
 
 </body>
 
