@@ -126,9 +126,8 @@ function handleSwipe() {
   }
 }
 
-// Initialize
+
 updateCards();
 
-// Uncomment the line below to enable auto-play
-// startAutoPlay();
+startAutoPlay();
 

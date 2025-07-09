@@ -949,7 +949,7 @@ header {
     }
 
     .card-content {
-        height: 150px;
+        height: 100px;
     }
 
     .next-section-2 {
@@ -971,7 +971,7 @@ header {
     .card-category {
         font-size: 12px;
         font-weight: 300;
-        padding: 8px 10px;
+        padding: 4px 10px;
     }
 
 }
