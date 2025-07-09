@@ -487,7 +487,7 @@ header {
 
 .swap-cards-container {
     display: flex;
-    padding: 40px 130px;
+    padding: 40px 130px 10px;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
@@ -633,7 +633,55 @@ header {
 }
 
 
+/* Summary Text  */
+.summary-text {
+    padding: 20px 20px;
+}
 
+
+/* Experience Boxes CSS  */
+
+.exp-box-container {
+    margin: 50px 8%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+
+.exp-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 2px;
+    justify-content: center;
+}
+
+.exp-box span i {
+    color: #008000;
+    padding-right: 5px;
+}
+
+#exp-box-2 {
+    border-left: 1px solid #bbb;
+
+}
+
+#exp-box-3 {
+    border-left: 1px solid #bbb;
+}
+
+.exp-box h2 {
+    font-weight: bold;
+    font-size: 40px;
+    font-family: var(--main-font);
+    color: #212529;
+}
+
+.exp-box h3 {
+    font-size: 16px;
+    color: #212529;
+    font-weight: 500;
+    font-family: var(--main-font);
+}
 
 @media(max-width:1200px) {
     .swap-cards-container {
@@ -759,6 +807,11 @@ header {
         height: 30px;
     }
 
+    .exp-box h3 {
+        font-size: 12px;
+
+    }
+
 }
 
 @media(max-width:880px) {
@@ -875,6 +928,22 @@ header {
         width: 40px;
         height: 40px;
     }
+
+    .exp-box {
+        margin-top: 1rem;
+        border: none;
+    }
+
+    #exp-box-2 {
+        border-top: 1px solid #bbb;
+        border-left: none;
+
+    }
+
+    #exp-box-3 {
+        border-top: 1px solid #bbb;
+        border-left: none;
+    }
 }
 
 
@@ -974,6 +1043,9 @@ header {
         padding: 4px 10px;
     }
 
+    .summary-section {
+        padding: 20px 40px 10px;
+    }
 }
 
 @media(max-width:400px) {

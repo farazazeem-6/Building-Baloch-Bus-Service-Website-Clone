@@ -38,7 +38,7 @@ function CheckValidation() {
     return;
   }
 
-  DesError.innerText = '✅ Search successful!';
+  DesError.innerText = 'Search successful!';
   DesError.style.color = '#008000';
   setTimeout(() => {
     DesError.innerText = '';
