@@ -683,6 +683,155 @@ header {
     font-family: var(--main-font);
 }
 
+
+/* Subscribe Section CSS  */
+
+.subscribe-container {
+    background-color: #004b08;
+    margin-top: 160px;
+    padding: 80px 100px 40px;
+    align-items: center;
+}
+
+.subscribe-text h2 {
+    color: rgb(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: var(--main-font);
+}
+
+.subscribe-text h1 {
+    color: #fff;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.subscribe-mail form {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+
+}
+
+.subscribe-mail form input:first-child {
+    display: inline-block;
+    width: 100%;
+    padding: 18px 130px 16px 15px;
+    border: 1px solid #00770b;
+    outline: none;
+    border-radius: 30px;
+}
+
+.subscribe-mail form input::placeholder {
+    font-size: 16px;
+    color: rgb(0, 75, 8);
+    font-family: var(--main-font);
+}
+
+.subscribe-mail form input:last-child {
+    display: inline-block;
+    position: absolute;
+    background-color: #00770b;
+    color: #fff;
+    padding: 16px 25px;
+    border: none;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    top: 2px;
+    right: 2px;
+    font-family: var(--main-font);
+
+}
+
+/* Footer  */
+footer {
+    padding: 30px 30px 30px 150px;
+    background-color: #008000;
+}
+
+.column-1 {
+    margin-right: 3rem;
+}
+
+.column-3 {
+    margin-right: 2rem;
+}
+
+.column-1 h3 {
+    font-size: 20px;
+    color: #fff;
+    font-family: var(--main-font);
+    font-weight: 500;
+}
+
+.column-1 p {
+    font-family: var(--main-font);
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.column-2 h3 {
+    font-size: 20px;
+    color: #fff;
+    font-family: var(--main-font);
+    font-weight: 500;
+}
+
+.column-2 ul li {
+    list-style: none;
+    padding-top: 10px;
+}
+
+.column-2 ul li a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1rem;
+    font-family: var(--main-font);
+
+}
+
+.column-3 h3 {
+    font-size: 20px;
+    color: #fff;
+    font-family: var(--main-font);
+    font-weight: 500;
+}
+
+.social-img {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.social-img img {
+    width: 130px;
+    padding-top: 10px;
+}
+
+.column-4 h3 {
+    font-size: 20px;
+    color: #fff;
+    font-family: var(--main-font);
+    font-weight: 500;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding-right: 15px;
+}
+
 @media(max-width:1200px) {
     .swap-cards-container {
         padding: 40px 90px;
@@ -809,6 +958,11 @@ header {
 
     .exp-box h3 {
         font-size: 12px;
+
+    }
+
+    footer {
+        padding: 50px 30px 30px 80px;
 
     }
 
@@ -944,6 +1098,43 @@ header {
         border-top: 1px solid #bbb;
         border-left: none;
     }
+
+    .subscribe-text {
+        margin-bottom: 60px;
+        margin-top: 10px;
+    }
+
+    .column-1 {
+        margin-bottom: 50px;
+        text-align: center;
+
+    }
+
+    .column-1 p {
+        text-align: center;
+    }
+
+    .column-2 {
+        margin-bottom: 50px;
+        text-align: center;
+
+    }
+
+    .column-3 {
+        margin-bottom: 50px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-img img {
+        width: 80px;
+    }
+
+    .column-4 {
+        text-align: center;
+    }
 }
 
 
@@ -965,6 +1156,32 @@ header {
         transform: translateX(0) scale(1);
         z-index: 3;
         opacity: 1;
+    }
+
+    .back-btn {
+        display: none;
+    }
+
+    .forward-btn {
+        display: none;
+    }
+
+    .cards-holding-container {
+        width: 400px;
+        height: 500px;
+    }
+
+    .card {
+        width: 450px;
+        height: 520px;
+    }
+
+    .card-image {
+        height: 400px;
+    }
+
+    .card-content {
+        height: 180px;
     }
 }
 
@@ -990,6 +1207,42 @@ header {
     header {
         padding: 13px 30px;
     }
+
+    .subscribe-mail form {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+
+    }
+
+    .subscribe-mail form input:first-child {
+        width: 100%;
+        padding: 18px 100px 16px 15px;
+        border: 1px solid #00770b;
+        outline: none;
+        border-radius: 30px;
+    }
+
+    .subscribe-mail form input::placeholder {
+        font-size: 14px;
+        color: rgb(0, 75, 8);
+        font-family: var(--main-font);
+    }
+
+    .subscribe-mail form input:last-child {
+
+
+        padding: 15px 20px;
+        border: none;
+        outline: none;
+        border: none;
+        border-radius: 30px;
+        top: 5px;
+        right: 5px;
+        font-family: var(--main-font);
+        font-size: 12px;
+    }
+
 }
 
 
@@ -1046,6 +1299,24 @@ header {
     .summary-section {
         padding: 20px 40px 10px;
     }
+
+    .subscribe-container {
+        background-color: #004b08;
+        margin-top: 80px;
+        padding: 20px 50px 10px;
+        align-items: center;
+    }
+
+    .subscribe-text {
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
+
+    footer {
+        padding: 50px 30px 30px 30px;
+
+    }
+
 }
 
 @media(max-width:400px) {
@@ -1067,5 +1338,9 @@ header {
     .box-text {
         width: 80%;
         margin: auto;
+    }
+
+    .next-main {
+        padding: 480px 20px 5px 20px;
     }
 }
