@@ -24,15 +24,16 @@ li {
 /* Date Picker CSS  */
 
 .datepicker {
-    width: 310px !important;
     padding: 10px !important;
     font-size: 16px;
 }
+
 
 .datepicker table tr td,
 .datepicker table tr th {
     padding: 4px 10px;
 }
+
 
 .datepicker table tr th {
     color: rgb(97, 180, 7) !important;
@@ -45,6 +46,7 @@ li {
     color: rgb(74, 74, 74);
     font-size: 14px;
 }
+
 
 
 
@@ -830,6 +832,18 @@ footer {
     color: #fff;
     font-size: 18px;
     padding-right: 15px;
+}
+
+
+/* Last Footer  */
+.copyright-footer{
+    text-align: center;
+    padding: 20px 0px;
+}
+.copyright-footer p{
+    color: #004b08;
+    font-size: 14px;
+    font-family: var(--main-font);
 }
 
 @media(max-width:1200px) {

@@ -62,7 +62,8 @@
 .contact-name-error,
 .email-error,
 .subject-error,
-.phone-num-error {
+.phone-num-error,
+.message-error {
     color: red;
     font-size: 14px;
     padding-left: 5px;
@@ -81,6 +82,16 @@ select:focus {
     box-shadow: none;
     border: 2px solid var(--color-lite-green);
 
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .message-form-input textarea:focus,
@@ -89,6 +100,7 @@ select:focus {
     outline: none;
     box-shadow: none;
     border: 2px solid var(--color-lite-green);
+
 }
 
 .send-msg-btn {
