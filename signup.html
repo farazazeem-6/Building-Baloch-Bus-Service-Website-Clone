@@ -37,6 +37,7 @@
 
     <!-- Link CSS  -->
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/contact.css">
     <link rel="stylesheet" href="/login.css">
     <link rel="stylesheet" href="signup.css">
 
@@ -57,7 +58,8 @@
                 </li>
                 <li><a href="/about.html"><i class="fa-solid fa-users"></i> <span>About Us</span></a></li>
                 <li><a href="/contact.html"><i class="fa-solid fa-envelope"></i> <span>Contact Us</span></a></li>
-                <li><a href="/login.html"  class="active"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span>
+                <li><a href="/login.html" class="active"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>Login/Signup</span>
                     </a></li>
             </ul>
         </div>
@@ -81,35 +83,87 @@
             </div>
 
             <!-- Login Heading Column -->
-            <div class="col-md-6 order-2 order-md-1" id="login-details">
+            <div class="col-md-6 order-2 order-md-1 login-details-2" id="login-details">
 
-                <h3>Welcome to Baloch Transport Services Login</h3>
-                <p>Please log in to your account to continue making your bookings and manage your travels with us</p>
-                <form action="" id="form-1">
-                    <label for="username">Username</label> <br>
-                    <input type="text" name="username" id="username" placeholder="your-email@gmail.com">
-                    <div class="username-error"></div>
-                    <label for="password">Password</label> <br>
-                    <input type="text" name="password" id="password" placeholder="Your Password">
-                    <div class="password-error"></div>
-                </form>
-                <form action="" id="radio-form">
-                    <div class="remember-section">
-                        <div class="remember-me">
-                            <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">Remember me</label>
+                <h3>Welcome to Baloch Transport Services Sign Up</h3>
+                <p>Create an account to book tickets, manage your travel, and enjoy seamless transportation services
+                    with us</p>
+                <div class="forms-container">
+
+
+                    <form id="form-no-1">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class="form-control" placeholder="First name" id="first-name">
+                                <div class="first-name-error"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Last name" id="last-name">
+                                <div class="last-name-error"></div>
+                            </div>
                         </div>
+                    </form>
 
-                        <a onclick="showForgetModal()" href="#" class="forgot-password">
-                            <i class="fa-solid fa-lock"></i>
-                            Forgot password ?
-                        </a>
-                    </div>
 
-                </form>
-                <button onclick="CheckValidationsForLogin()" class="log-in-btn">Log in</button>
-                <p class="create-acc-text">Don't have an account?<span><a href="/signup.html">Create new
-                            account</a></span></p>
+                    <form id="form-no-2">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" placeholder="Enter Email" id="email">
+                                <div class="email-error"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" placeholder="03001234567" id="phone">
+                                <div class="phone-no-error"></div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <form id="form-no-3">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="cnic">CNIC</label>
+                                <input type="text" class="form-control" placeholder="22400123456780" id="cnic">
+                                <div class="cnic-error"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="">Gender</label> <br>
+                                <select name="" id="">
+                                    <option value="">Male</option>
+                                    <option value="">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <form id="form-no-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" placeholder="Enter Password" id="password">
+                                <div class="password-error2"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="text" class="form-control" placeholder="Confirm Password"
+                                    id="confirm-password">
+                                <div class="confirm-password-error"></div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+
+
+                <button onclick="checkValidationSignUp()" class="log-in-btn signup-btn">Register</button>
+                <p class="create-acc-text">Already have an account?<span><a href="/login.html">Sign In</a></span></p>
 
             </div>
         </div>
