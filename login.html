@@ -86,21 +86,27 @@
                 <form action="" id="form-1">
                     <label for="username">Username</label> <br>
                     <input type="text" name="username" id="username" placeholder="your-email@gmail.com">
-                    <label for="username">Password</label> <br>
-                    <input type="text" name="username" id="username" placeholder="Your Password">
+                    <div class="username-error"></div>
+                    <label for="password">Password</label> <br>
+                    <input type="text" name="password" id="password" placeholder="Your Password">
+                    <div class="password-error"></div>
                 </form>
-                <div class="remember-section">
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Remember me</label>
+                <form action="" id="radio-form">
+                    <div class="remember-section">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+
+                        <a href="#" class="forgot-password">
+                            <i class="fa-solid fa-lock"></i>
+                            Forgot password ?
+                        </a>
                     </div>
 
-                    <a href="#" class="forgot-password">
-                        <i class="fa-solid fa-lock"></i>
-                        Forgot password ?
-                    </a>
-                </div>
-                <button class="log-in-btn">Log in</button>
+                </form>
+                <button onclick="CheckValidationsForLogin()" class="log-in-btn">Log in</button>
+                <p class="create-acc-text">Don't have an account?<span><a href="">Create new account</a></span></p>
 
             </div>
         </div>
@@ -109,7 +115,35 @@
 
 
 
-   <!-- Footer Section  -->
+
+
+
+        <!-- Contact Us  -->
+
+    <div class="subscribe-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="subscribe-text">
+                    <h2>SUBSCRIBE TO OUR </h2>
+                    <h1>NEWSLETTER</h1>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="subscribe-mail">
+                    <form action="">
+                        <input type="email" placeholder="Enter email adress " name="email" required>
+                        <input type="submit" value="SUBMIT" required>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Footer Section  -->
 
     <footer>
         <div class="row">
