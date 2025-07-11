@@ -46,6 +46,7 @@ function CheckValidationsForLogin() {
         alert('Logged in');
         document.getElementById('form-1').reset();
         document.getElementById('radio-form').reset();
+
     }
 
 }
@@ -54,4 +55,53 @@ Username.addEventListener('input', function () {
 })
 UserPassword.addEventListener('input', function () {
     document.querySelector('.password-error').innerText = '';
+})
+
+
+
+const forgetModal = document.getElementById('forget-modal');
+const forgetEmail = document.getElementById('forget-email');
+const closeIcon = document.querySelector('.cross-img img');
+const SubmitBtn = document.getElementsByClassName('send-email-btn');
+
+closeIcon.addEventListener('click', () => {
+    forgetModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+});
+
+function showForgetModal() {
+    document.getElementById('forget-modal').style.display = 'flex';
+    document.body.classList.add('modal-open'); // disables page scroll
+}
+
+
+
+function CheckForgetValidation() {
+    const emailRegex = /^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/;
+
+    const GetforgetValue = forgetEmail.value.trim();
+
+    let isValidForgetEmail = true;
+
+    document.querySelector('.invalid-forget-email').innerText = ''
+
+    if (GetforgetValue === "") {
+        document.querySelector('.invalid-forget-email').innerText = 'Email require';
+        isValidForgetEmail = false;
+    }
+    else if (!emailRegex.test(GetforgetValue)) {
+        document.querySelector('.invalid-forget-email').innerText = 'Invalid email';
+        isValidForgetEmail = false;
+
+    }
+
+    if (isValidForgetEmail) {
+        alert('Verification Link Sent!');
+        forgetModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+}
+
+forgetEmail.addEventListener('input', () => {
+    document.querySelector('.invalid-forget-email').innerText = '';
 })

@@ -90,13 +90,11 @@ function CheckValidtionsOfContactForm() {
 
 
     if (isValidContactsInput) {
-        document.querySelector('.message-error').innerText = ' ✅ Message Sent!';
+        // document.querySelector('.message-error').innerText = ' ✅ Message Sent!';
+        alert('Message Sent!')
         document.getElementById('contactForm').reset();
         document.getElementById('messageForm').reset();
-        setTimeout(() => {
-            document.querySelector('.message-error').innerText = '';
-
-        }, 5000);
+      
 
     }
 }

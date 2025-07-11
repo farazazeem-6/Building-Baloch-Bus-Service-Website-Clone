@@ -11,8 +11,13 @@ body {
     overflow-x: hidden;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .username-error,
-.password-error {
+.password-error,
+.invalid-forget-email {
     color: red;
     font-size: 14px;
     padding-left: 5px;
@@ -192,6 +197,119 @@ body {
     padding-right: 5px;
 }
 
+
+/* Modal CSS  */
+
+#forget-modal {
+    width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+}
+
+.modal-data {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+}
+
+.cross-img {
+    display: flex;
+    justify-content: end;
+
+}
+
+.cross-img img {
+    width: 30px;
+    cursor: pointer;
+}
+
+.forget-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forget-text-container h2 {
+    color: #000;
+    font-size: 24px;
+    font-family: var(--main-font);
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.forget-text-container p {
+    color: #000;
+    font-family: var(--main-font);
+    font-size: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#forget-form input {
+    width: 400px;
+    max-width: 100%;
+    padding: 9px 12px;
+    font-family: var(--main-font);
+    background-color: #ffffff;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#forget-form input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid var(--color-lite-green);
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.send-email-btn {
+    background-color: #008000;
+    color: #fff;
+    font-family: var(--main-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 30px;
+    border: none;
+    padding: 9px 12px;
+    border-radius: .25rem;
+    margin-bottom: 30px;
+}
+
 @media(max-width:1100px) {
     #login-details {
         background: #f6f7fc;
@@ -211,6 +329,19 @@ body {
 
     #login-details {
         padding: 50px;
+    }
+}
+
+@media(max-width:550px) {
+
+    #forget-form input {
+        width: 300px;
+        max-width: 100%;
+
+    }
+
+    .forget-text-container {
+        padding: 0px 30px;
     }
 }
 

@@ -37,11 +37,14 @@
 
     <!-- Link CSS  -->
     <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="signup.css">
 
 </head>
 
 <body>
+
+
     <!-- Header Section  -->
     <header>
         <div class="logo">
@@ -54,8 +57,7 @@
                 </li>
                 <li><a href="/about.html"><i class="fa-solid fa-users"></i> <span>About Us</span></a></li>
                 <li><a href="/contact.html"><i class="fa-solid fa-envelope"></i> <span>Contact Us</span></a></li>
-                <li><a href="/login.html" class="active"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        <span>Login/Signup</span>
+                <li><a href="/login.html"  class="active"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span>
                     </a></li>
             </ul>
         </div>
@@ -98,10 +100,10 @@
                             <label for="remember">Remember me</label>
                         </div>
 
-                        <a href="#" class="forgot-password" onclick="event.preventDefault(); showForgetModal()">
-                            <i class="fa-solid fa-lock"></i> Forgot password?
+                        <a onclick="showForgetModal()" href="#" class="forgot-password">
+                            <i class="fa-solid fa-lock"></i>
+                            Forgot password ?
                         </a>
-
                     </div>
 
                 </form>
@@ -112,10 +114,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
@@ -141,7 +139,6 @@
 
 
     </div>
-
 
 
     <!-- Footer Section  -->
@@ -193,8 +190,6 @@
     </footer>
 
 
-
-
     <!-- Last footer  -->
     <div class="copyright-footer">
         <p>Copyright © 1955 – 2025 Baloch Transport Services. All rights reserved.
@@ -203,37 +198,8 @@
     </div>
 
 
-
-
-    <!-- Forget Password Modal  -->
-
-    <div id="forget-modal" class="forget-modal">
-        <div class="modal-data">
-            <div class="cross-img">
-                <img src="/images/remove.png" alt="">
-            </div>
-            <div class="forget-text-container">
-                <h2>Forgotten Password</h2>
-                <p>Please, enter your email to recover your password.</p>
-                <form id="forget-form">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Enter email" id="forget-email">
-                            <div class="invalid-forget-email"></div>
-                        </div>
-
-                    </div>
-                </form>
-                <button onclick="CheckForgetValidation()" class="send-email-btn">Send Recovery Link</button>
-            </div>
-        </div>
-    </div>
-
-
-
-
     <script src="/home.js"></script>
-    <script src="/login.js"></script>
+    <script src="/signup.js"></script>
 </body>
 
 </html>
