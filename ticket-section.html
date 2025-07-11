@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Tickets Online | Baloch Transport Bus Service</title>
+    <!-- Fevicon Icon  -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,200;0,400;0,700;0,800;0,900;1,300;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Remix Icon Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- Box Icon Link  -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- BootStrap Link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <!-- Date Picker Link  -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    <!-- Link CSS  -->
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="ticket-section.css">
+
+</head>
+
+<body>
+
+    <!-- Header Section  -->
+    <header>
+        <div class="logo">
+            <img src="/images/logo.png" alt="">
+
+        </div>
+        <div class="nav-buttons">
+            <ul>
+                <li><a href="/home.html" class="active"><i class="fa-solid fa-house-chimney"></i> <span>Home</span></a>
+                </li>
+                <li><a href="/about.html"><i class="fa-solid fa-users"></i> <span>About Us</span></a></li>
+                <li><a href="/contact.html"><i class="fa-solid fa-envelope"></i> <span>Contact Us</span></a></li>
+                <li><a href="/login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div class="cargo-container">
+            <a href="#"><i class="fa-solid fa-truck"></i> <span>Cargo Tracking</span></a>
+        </div>
+        <div class="ham-burger-btn">
+            <a href="#"><i class="ri-menu-line"></i></a>
+        </div>
+    </header>
+
+    <!-- Booking Inputs -->
+    <div class="search-container-wrapper" id="search-container-booking">
+        <div class="search-container">
+            <div class="booking-heading">
+
+                <div class="left-booking-heading">
+                    <h4>Chowk Azam - Lahore</h4>
+                    <p>Jul 11, Friday</p>
+                </div>
+                <div class="right-booking-heading">
+                    <a href="#">Modify Search</a>
+                </div>
+
+            </div>
+            <form class="search-form">
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group position-relative">
+                            <label for="destination">Origin:</label>
+                            <div class="select-with-icon">
+                                <i class="fa-regular fa-circle select-icon"></i>
+                                <select id="origin" name="origin" class="form-control">
+                                    <option value="">Select Origin</option>
+                                    <option value="lahore">Lahore</option>
+                                    <option value="karachi">Karachi</option>
+                                    <option value="islamabad">Islamabad</option>
+                                    <option value="faisalabad">Faisalabad</option>
+                                    <option value="rawalpindi">Rawalpindi</option>
+                                    <option value="peshawar">Peshawar</option>
+                                    <option value="layyah">Layyah</option>
+                                    <option value="multan">Multan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dep-error-div"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group position-relative">
+                            <label for="destination">Destination:</label>
+                            <div class="select-with-icon">
+                                <i class="fa-solid fa-location-dot select-icon"></i>
+                                <select id="destination" name="destination" class="form-control">
+                                    <option value="">Select Destination</option>
+                                    <option value="lahore">Lahore</option>
+                                    <option value="karachi">Karachi</option>
+                                    <option value="islamabad">Islamabad</option>
+                                    <option value="faisalabad">Faisalabad</option>
+                                    <option value="rawalpindi">Rawalpindi</option>
+                                    <option value="peshawar">Peshawar</option>
+                                    <option value="layyah">Layyah</option>
+                                    <option value="multan">Multan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="des-error-div"></div>
+                    </div>
+
+
+
+                    <div class="col-md-2">
+                        <div class="form-group position-relative">
+                            <label for="datepicker">Date:</label>
+                            <div class="input-with-icon">
+                                <i class="ri-calendar-2-line calendar-icon"></i>
+                                <input type="text" id="datepicker" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="">&nbsp;</label>
+                            <button type="button" onclick="CheckValidation()" class="search-button">Search</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Booking Cards  -->
+
+    <div class="booking-details-container">
+        <div class="row">
+            <div class="col-lg-3" id="booking-sidebar">
+                <h2 class="col-heading">Filters</h2>
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Price
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <div class="price-range-container">
+                                    <div class="price-range">
+                                        <div class="price-labels">
+                                            <span>PKR 500</span>
+                                            <span>PKR 3000</span>
+                                        </div>
+                                        <div class="range-track">
+                                            <div class="range-endpoint left"></div>
+                                            <div class="range-endpoint right"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Depart Time
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+
+                                <div class="btns">
+                                    <a href="#">Before 6 am</a>
+                                </div>
+                                <div class="btns">
+                                    <a href="#">6 am - 12 pm</a>
+                                </div>
+                                <div class="btns">
+                                    <a href="#">12 pm - 6 am</a>
+                                </div>
+                                <div class="btns">
+                                    <a href="#">After 6 pm</a>
+                                </div>
+                                <hr>
+                                <div class="btns">
+                                    <a href="#">Reset All</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-9" id="booking-main-data">
+
+                <div class="booking-main-data-heading">
+                    <h2>6 Results</h2>
+                    <div class="ser-box">
+                        <span>Sort by:</span>
+                        <input type="text" name="" id="" placeholder="Select Order">
+                    </div>
+
+                </div>
+
+                <div class="bus-card">
+                    <div class="bus-card-content">
+                        <div class="departure-info">
+                            <div class="bus-icon">
+                                <img src="/images/bus (2).png" alt="">
+                            </div>
+                            <div class="time-location">
+                                <div class="time">5:15 PM</div>
+                                <div class="date">Jul 11, Fri</div>
+                                <div class="des-location">Chowk Azam (CHA)</div>
+                            </div>
+                        </div>
+
+                        <div class="route-info">
+                            <div class="route-text">Via Motorway</div>
+                            <div class="route-line"></div>
+                            <div class="bus-type">HIGH ROOF BUS</div>
+                        </div>
+
+                        <div class="arrival-info">
+                            <div class="time">9:50 PM</div>
+                            <div class="date">Jul 11, Fri</div>
+                            <div class="dep-location">Lahore (LHR)</div>
+                        </div>
+
+                        <div class="booking-section">
+                            <div class="price-section">
+                                <div class="special-offer">SPECIAL OFFER</div>
+                                <div class="price">PKR 1600</div>
+                                <div class="original-price">PKR 1700</div>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="bus-card">
+                    <div class="bus-card-content">
+                        <div class="departure-info">
+                            <div class="bus-icon">
+                                <img src="/images/bus (2).png" alt="">
+                            </div>
+                            <div class="time-location">
+                                <div class="time">6:00 AM</div>
+                                <div class="date">Jul 11, Fri</div>
+                                <div class="des-location">Chowk Azam (CHA)</div>
+                            </div>
+                        </div>
+
+                        <div class="route-info">
+                            <div class="route-text">Via Motorway</div>
+                            <div class="route-line"></div>
+                            <div class="bus-type">BUSINESS AND GOLD CLASS</div>
+                        </div>
+
+                        <div class="arrival-info">
+                            <div class="time">10:45 PM</div>
+                            <div class="date">Jul 11, Fri</div>
+                            <div class="dep-location">Lahore (LHR)</div>
+                        </div>
+
+                        <div class="booking-section">
+                            <div class="price-section">
+                                <div class="special-offer">SPECIAL OFFER</div>
+                                <div class="price">PKR 2150</div>
+                                <div class="original-price">PKR 2250</div>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bus-card">
+                    <div class="bus-card-content">
+                        <div class="departure-info">
+                            <div class="bus-icon">
+                                <img src="/images/bus (2).png" alt="">
+                            </div>
+                            <div class="time-location">
+                                <div class="time">7:30 PM</div>
+                                <div class="date">Jul 11, Fri</div>
+                                <div class="des-location">Chowk Azam (CHA)</div>
+                            </div>
+                        </div>
+
+                        <div class="route-info">
+                            <div class="route-text">Via Motorway</div>
+                            <div class="route-line"></div>
+                            <div class="bus-type">GOLD CLASS BUS</div>
+                        </div>
+
+                        <div class="arrival-info">
+                            <div class="time">12:15 AM</div>
+                            <div class="date">Jul 11, Fri</div>
+                            <div class="dep-location">Lahore (LHR)</div>
+                        </div>
+
+                        <div class="booking-section">
+                            <div class="price-section">
+                                <div class="special-offer">SPECIAL OFFER</div>
+                                <div class="price">PKR 2150</div>
+                                <div class="original-price">PKR 2250</div>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bus-card">
+                    <div class="bus-card-content">
+                        <div class="departure-info">
+                            <div class="bus-icon">
+                                <img src="/images/bus (2).png" alt="">
+                            </div>
+                            <div class="time-location">
+                                <div class="time">10:00 PM</div>
+                                <div class="date">Jul 11, Fri</div>
+                                <div class="des-location">Chowk Azam (CHA)</div>
+                            </div>
+                        </div>
+
+                        <div class="route-info">
+                            <div class="route-text">Via Motorway</div>
+                            <div class="route-line"></div>
+                            <div class="bus-type">HIGH ROOF BUS</div>
+                        </div>
+
+                        <div class="arrival-info">
+                            <div class="time">2:35 AM</div>
+                            <div class="date">Jul 11, Fri</div>
+                            <div class="dep-location">Lahore (LHR)</div>
+                        </div>
+
+                        <div class="booking-section">
+                            <div class="price-section">
+                                <div class="special-offer">SPECIAL OFFER</div>
+                                <div class="price">PKR 1600</div>
+                                <div class="original-price">PKR 1700</div>
+                            </div>
+                            <button class="book-btn">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/home.js"></script>
+    <script src="/ticket.js"></script>
+    <!-- jQuery (Required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Datepicker JS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get today's date
+            const today = new Date();
+
+            // Format it as yyyy-mm-dd
+            const formattedToday = today.toISOString().split('T')[0]; // ✅ format: yyyy-mm-dd
+
+            // Calculate max date (4 days from today)
+            const maxDate = new Date();
+            maxDate.setDate(today.getDate() + 4);
+
+            // Set today's date as the default value in the input
+            $('#datepicker').val(formattedToday);
+
+            // Initialize datepicker with constraints
+            $('#datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                startDate: today,
+                endDate: maxDate,
+                orientation: "top auto",
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+</body>
+
+</html>

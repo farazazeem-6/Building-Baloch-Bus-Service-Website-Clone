@@ -10,6 +10,8 @@ hamburgerBtn.addEventListener('click', (e) => {
 
 
 
+
+const searchBtn = document.getElementsByClassName('search-button');
 const Origin = document.getElementById('origin');
 const Des = document.getElementById('destination');
 
@@ -19,6 +21,7 @@ function CheckValidation() {
 
   const OriginValue = Origin.value.trim();
   const DesValue = Des.value.trim();
+  const travelDate = document.getElementById('datepicker').value.trim(); // make sure your date input has id="date"
 
   DesError.innerText = '';
   DepError.innerText = '';
@@ -38,11 +41,17 @@ function CheckValidation() {
     return;
   }
 
-  DesError.innerText = 'Search successful!';
-  DesError.style.color = '#008000';
+  // Save data to localStorage
+  localStorage.setItem("originCity", OriginValue);
+  localStorage.setItem("destinationCity", DesValue);
+  localStorage.setItem("travelDate", travelDate);
+
+  // Redirect after short delay (optional success message)
+
   setTimeout(() => {
     DesError.innerText = '';
-  }, 5000);
+    window.location.href = "ticket-section.html"; // redirect to ticket page
+  }, 1000);
 }
 
 Origin.addEventListener('change', function () {
@@ -52,6 +61,8 @@ Origin.addEventListener('change', function () {
 Des.addEventListener('change', function () {
   document.querySelector('.des-error-div').innerText = '';
 });
+
+
 
 
 

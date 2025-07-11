@@ -107,10 +107,10 @@ function checkValidationSignUp() {
 
     if (isValidSignUp) {
         alert('You Signed In!');
-        document.getElementsByClassName('form-no-1').reset();
-        document.getElementsByClassName('form-no-2').reset();
-        document.getElementsByClassName('form-no-3').reset();
-        document.getElementsByClassName('form-no-4').reset();
+        document.getElementById('form-no-1').reset();
+        document.getElementById('form-no-2').reset();
+        document.getElementById('form-no-3').reset();
+        document.getElementById('form-no-4').reset();
     }
 }
 
