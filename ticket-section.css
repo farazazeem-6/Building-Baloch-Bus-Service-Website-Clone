@@ -420,12 +420,10 @@ input:-webkit-autofill:active {
 
 .des-location,
 .dep-location {
-  font-weight: bold;
-  color: black;
-  font-family: var(--main-font);
+    font-weight: bold;
+    color: black;
+    font-family: var(--main-font);
 }
-
-
 
 
 @media (max-width: 768px) {
