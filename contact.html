@@ -45,7 +45,7 @@
 <body>
     <!-- Header Section  -->
     <header class="contact-header">
-         <div class="logo">
+        <div class="logo">
             <a href="/home.html">
                 <img src="/images/logo.png" alt="">
 
@@ -59,7 +59,8 @@
                 </li>
                 <li><a href="/contact.html" class="active"><i class="fa-solid fa-envelope"></i> <span>Contact
                             Us</span></a></li>
-                <li><a href="/login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span> </a></li>
+                <li><a href="/login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span>Login/Signup</span>
+                    </a></li>
             </ul>
         </div>
 
@@ -147,22 +148,22 @@
             </div>
             <div class="col-md-8">
                 <div class="subscribe-mail">
-                    <form action="">
-                        <input type="email" placeholder="Enter email adress " name="email" required>
-                        <input type="submit" value="SUBMIT" required>
+                    <form id="subscribe-form">
+                        <input type="email" placeholder="Enter email address" name="email" required
+                            id="subscribe-email">
+                        <input type="submit" value="SUBMIT">
                     </form>
                 </div>
             </div>
         </div>
-
-
     </div>
+
 
 
 
     <!-- Footer Section  -->
 
-   <footer>
+    <footer>
         <div class="row">
             <div class="col-md-4 column-1">
                 <h3>About Baloch Transport Service</h3>
@@ -209,12 +210,33 @@
     </footer>
 
 
-       <!-- Last footer  -->
+    <!-- Last footer  -->
     <div class="copyright-footer">
         <p>Copyright © 1955 – 2025 Baloch Transport Services. All rights reserved.
 
         </p>
     </div>
+
+
+    <!-- Modal  -->
+
+
+    <div id="forget-modal" class="forget-modal">
+        <div class="modal-data">
+            <div class="cross-img">
+                <img src="/images/remove.png" alt="">
+            </div>
+            <div class="forget-text-container">
+                <h2>🎉 Subscription Confirmed</h2>
+                <p>Thank you for subscribing! Welcome to Baloch Transports.</p>
+                <a href="/home.html">
+                    <button class="send-email-btn">EXPLORE MORE</button>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
 
     <script src="/home.js"></script>
     <script src="/contact.js"></script>

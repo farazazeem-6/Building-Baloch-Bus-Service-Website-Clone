@@ -6,6 +6,10 @@
     --header-color: #f8f9fa;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .about-section {
     padding: 50px 120px;
     font-family: var(--main-font);
@@ -52,6 +56,8 @@
 .for-more-btn:hover {
     background-color: #bbb;
 }
+
+
 
 @media(max-width:768px) {
     .about-section {

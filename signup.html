@@ -48,7 +48,7 @@
 
     <!-- Header Section  -->
     <header>
-         <div class="logo">
+        <div class="logo">
             <a href="/home.html">
                 <img src="/images/logo.png" alt="">
 
@@ -186,15 +186,14 @@
             </div>
             <div class="col-md-8">
                 <div class="subscribe-mail">
-                    <form action="">
-                        <input type="email" placeholder="Enter email adress " name="email" required>
-                        <input type="submit" value="SUBMIT" required>
+                    <form id="subscribe-form">
+                        <input type="email" placeholder="Enter email address" name="email" required
+                            id="subscribe-email">
+                        <input type="submit" value="SUBMIT">
                     </form>
                 </div>
             </div>
         </div>
-
-
     </div>
 
 
@@ -253,6 +252,28 @@
 
         </p>
     </div>
+
+
+
+    <!-- Modal  -->
+
+
+    <div id="forget-modal" class="forget-modal">
+        <div class="modal-data">
+            <div class="cross-img">
+                <img src="/images/remove.png" alt="">
+            </div>
+            <div class="forget-text-container">
+                <h2>🎉 Subscription Confirmed</h2>
+                <p>Thank you for subscribing! Welcome to Baloch Transports.</p>
+                <a href="/home.html">
+                    <button class="send-email-btn">EXPLORE MORE</button>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="/home.js"></script>

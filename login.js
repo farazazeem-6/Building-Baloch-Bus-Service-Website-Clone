@@ -59,18 +59,18 @@ UserPassword.addEventListener('input', function () {
 
 
 
-const forgetModal = document.getElementById('forget-modal');
+const forgetModal1 = document.getElementById('forget-modal-1');
 const forgetEmail = document.getElementById('forget-email');
-const closeIcon = document.querySelector('.cross-img img');
+const closeIcon1 = document.querySelector('.cross-img-1 img');
 const SubmitBtn = document.getElementsByClassName('send-email-btn');
 
-closeIcon.addEventListener('click', () => {
-    forgetModal.style.display = 'none';
+closeIcon1.addEventListener('click', () => {
+    forgetModal1.style.display = 'none';
     document.body.classList.remove('modal-open');
 });
 
 function showForgetModal() {
-    document.getElementById('forget-modal').style.display = 'flex';
+    document.getElementById('forget-modal-1').style.display = 'flex';
     document.body.classList.add('modal-open'); // disables page scroll
 }
 

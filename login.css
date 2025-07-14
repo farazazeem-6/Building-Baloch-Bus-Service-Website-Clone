@@ -200,7 +200,7 @@ body.modal-open {
 
 /* Modal CSS  */
 
-#forget-modal {
+#forget-modal-1 {
     width: 900px;
     margin: auto;
     border-radius: 10px;
@@ -230,13 +230,13 @@ body.modal-open {
     position: relative;
 }
 
-.cross-img {
+.cross-img-1 {
     display: flex;
     justify-content: end;
 
 }
 
-.cross-img img {
+.cross-img-1 img {
     width: 30px;
     cursor: pointer;
 }
