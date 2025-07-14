@@ -523,7 +523,6 @@ header {
     cursor: pointer;
     overflow: hidden;
     width: 400px;
-    /* height: 580px; */
 }
 
 .card-image {
@@ -621,7 +620,6 @@ header {
     object-fit: contain;
 }
 
-/* Different card categories */
 .card:nth-child(1) .card-category {
     background: #56970f;
 }

@@ -89,6 +89,7 @@ li {
     font-weight: bold;
     font-family: var(--main-font);
     text-align: left;
+    text-transform: uppercase;
 }
 
 .left-booking-heading p {

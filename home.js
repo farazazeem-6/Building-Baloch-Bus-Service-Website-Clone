@@ -21,7 +21,7 @@ function CheckValidation() {
 
   const OriginValue = Origin.value.trim();
   const DesValue = Des.value.trim();
-  const travelDate = document.getElementById('datepicker').value.trim(); // make sure your date input has id="date"
+  const travelDate = document.getElementById('datepicker').value.trim();
 
   DesError.innerText = '';
   DepError.innerText = '';
@@ -46,11 +46,10 @@ function CheckValidation() {
   localStorage.setItem("destinationCity", DesValue);
   localStorage.setItem("travelDate", travelDate);
 
-  // Redirect after short delay (optional success message)
 
   setTimeout(() => {
     DesError.innerText = '';
-    window.location.href = "ticket-section.html"; // redirect to ticket page
+    window.location.href = "ticket-section.html"; 
   }, 1000);
 }
 
@@ -97,12 +96,13 @@ function previousCard() {
   updateCards();
 }
 
-// Optional: Auto-play functionality
+
 function startAutoPlay() {
-  setInterval(nextCard, 4000); // Change card every 4 seconds
+  setInterval(nextCard, 4000); 
 }
 
-// Keyboard navigation
+
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') {
     previousCard();
@@ -140,5 +140,5 @@ function handleSwipe() {
 
 updateCards();
 
-startAutoPlay();
+// startAutoPlay();
 

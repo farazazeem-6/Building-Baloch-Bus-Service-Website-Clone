@@ -458,16 +458,14 @@
             const today = new Date();
 
             // Format it as yyyy-mm-dd
-            const formattedToday = today.toISOString().split('T')[0]; // ✅ format: yyyy-mm-dd
+            const formattedToday = today.toISOString().split('T')[0]; 
 
-            // Calculate max date (4 days from today)
             const maxDate = new Date();
             maxDate.setDate(today.getDate() + 4);
 
             // Set today's date as the default value in the input
             $('#datepicker').val(formattedToday);
 
-            // Initialize datepicker with constraints
             $('#datepicker').datepicker({
                 format: 'yyyy-mm-dd',
                 startDate: today,
