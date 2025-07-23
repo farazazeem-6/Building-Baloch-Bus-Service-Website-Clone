@@ -569,7 +569,6 @@ body.seat-modal-open {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
-
 }
 
 
@@ -702,6 +701,14 @@ body.seat-modal-open {
     color: #000;
     font-weight: 500;
 }
+
+.seat-counts p span {
+    font-size: 12px;
+    font-family: var(--main-font);
+    color: #000;
+    font-weight: 500;
+}
+
 
 .seat-modal-footer {
     display: flex;

@@ -160,9 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (seatModal && seatcloseIcon) {
         seatcloseIcon.addEventListener('click', () => {
-            console.log("Close icon clicked"); // optional test
             seatModal.style.display = 'none';
             document.body.classList.remove('seat-modal-open');
+
+            resetUserSelectedSeats();
         });
     } else {
         console.warn('Modal or close icon not found in the DOM when script ran.');
@@ -175,36 +176,80 @@ function showSeatModal() {
 }
 
 
+function resetUserSelectedSeats() {
+    const allSeats = document.querySelectorAll('.seat');
+    allSeats.forEach(seat => {
+        const bgColor = window.getComputedStyle(seat).backgroundColor;
+        if (bgColor === 'rgb(0, 128, 0)') {
+            seat.style.backgroundColor = 'white';
+            seat.style.border = '1px solid black';
+            seat.style.color = 'black';
+        }
+    });
+}
 
 
-// Seat Selection JS 
+
+
+// Seat Selection JS:
 
 const seats = document.querySelectorAll('.seat');
 const genderModal = document.getElementById('genderModal');
 const closeGenderModal = document.getElementById('closeGenderModal');
 const maleBtn = document.getElementById('maleBtn');
 const femaleBtn = document.getElementById('femaleBtn');
+const seatNo = document.querySelector('.seat-counts p span');
+const seatPrice = document.querySelector('.price');
+const totalPrice = document.querySelector('.total-amount-of-seat p span');
 
 let selectedSeat = null;
 
+function extractPrice(text) {
+    const match = text.match(/\d+/g); // Find all numbers
+    return match ? parseInt(match.join("")) : 0;
+}
 
+function getSelectedSeats() {
+    return seatNo.innerText
+        .replace("Seat No: ", "")
+        .split(", ")
+        .filter(Boolean);
+}
 
+function updateSeatListText(seatsArray) {
+    seatNo.innerText = `${seatsArray.join(", ")}`;
+    const pricePerSeat = extractPrice(seatPrice.innerText);
+    totalPrice.innerText = seatsArray.length * pricePerSeat;
+}
+
+// ✅ Seat click handler
 seats.forEach(seat => {
     seat.addEventListener('click', () => {
         const bg = window.getComputedStyle(seat).backgroundColor;
+        const seatText = seat.innerText.trim();
+        let selectedSeats = getSelectedSeats();
 
+        // ✅ Select seat
         if (bg === 'rgb(255, 255, 255)') {
+            if (selectedSeats.length >= 5) {
+                alert("You can only select up to 5 seats.");
+                return;
+            }
             selectedSeat = seat;
             genderModal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
+
+        // ✅ Deselect seat
         else if (bg === 'rgb(0, 128, 0)') {
             seat.style.backgroundColor = 'white';
             seat.style.color = 'black';
             seat.style.border = '1px solid black';
-        } else {
-            // alert("Sorry, this seat is already booked.");
+
+            const updatedSeats = selectedSeats.filter(s => s !== seatText);
+            updateSeatListText(updatedSeats);
         }
+
     });
 });
 
@@ -214,26 +259,28 @@ closeGenderModal.addEventListener('click', () => {
     selectedSeat = null;
 });
 
+[maleBtn, femaleBtn].forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (selectedSeat) {
+            selectedSeat.style.backgroundColor = '#008000';
+            selectedSeat.style.color = 'white';
+            selectedSeat.style.border = 'none';
 
-maleBtn.addEventListener('click', () => {
-    if (selectedSeat) {
-        selectedSeat.style.backgroundColor = '#008000';
-        selectedSeat.style.color = 'white';
-        selectedSeat.style.border = 'none';
-    }
-    genderModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    selectedSeat = null;
+            let selectedSeats = getSelectedSeats();
+            const seatText = selectedSeat.innerText;
+
+            if (!selectedSeats.includes(seatText)) {
+                selectedSeats.push(seatText);
+            }
+            updateSeatListText(selectedSeats);
+        }
+
+        genderModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        selectedSeat = null;
+    });
 });
 
 
-femaleBtn.addEventListener('click', () => {
-    if (selectedSeat) {
-        selectedSeat.style.backgroundColor = '#008000';
-        selectedSeat.style.color = 'white';
-        selectedSeat.style.border = 'none';
-    }
-    genderModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-    selectedSeat = null;
-});
+
+
