@@ -178,8 +178,13 @@ function showSeatModal() {
 
 function resetUserSelectedSeats() {
     const allSeats = document.querySelectorAll('.seat');
+
+    document.querySelector('.seat-counts p span').innerText = '';
+    document.querySelector('.total-amount-of-seat p span').innerText = '0';
+
     allSeats.forEach(seat => {
         const bgColor = window.getComputedStyle(seat).backgroundColor;
+
         if (bgColor === 'rgb(0, 128, 0)') {
             seat.style.backgroundColor = 'white';
             seat.style.border = '1px solid black';
@@ -187,6 +192,7 @@ function resetUserSelectedSeats() {
         }
     });
 }
+
 
 
 
