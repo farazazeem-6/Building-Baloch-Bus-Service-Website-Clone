@@ -220,6 +220,7 @@ header {
     display: flex;
     align-items: center;
     width: 200px;
+    cursor: default;
 }
 
 .home-section-text a span {

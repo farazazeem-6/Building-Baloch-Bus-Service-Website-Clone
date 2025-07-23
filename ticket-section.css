@@ -29,7 +29,7 @@ li {
 }
 
 .booking-details-container {
-    padding: 100px 130px;
+    padding: 100px 120px;
 
 }
 
@@ -183,10 +183,15 @@ input:-webkit-autofill:active {
     outline: none !important;
 }
 
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    box-shadow: none;
+    color: inherit;
+}
+
 .btns {
     border: 1px solid black;
     background-color: white;
-    color: #000;
     text-align: center;
     padding: 10px 15px;
     border-radius: 5px;
@@ -197,7 +202,11 @@ input:-webkit-autofill:active {
 
 .btns:hover {
     background-color: #008000;
-    color: #fff;
+    border: 1px solid #bbb;
+}
+
+.btns:hover a {
+    color: white;
 }
 
 .btns a {
@@ -210,50 +219,116 @@ input:-webkit-autofill:active {
 
 /* Price Ranger CSS  */
 
-.price-range-container {
-    max-width: 400px;
-    margin: 0 auto;
+
+.slider-container {
+    width: 220px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.price-range {
-    position: relative;
-    margin: 30px 0;
-}
 
-.price-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-}
 
-.range-track {
-    height: 8px;
-    background-color: #28a745;
-    border-radius: 4px;
-    position: relative;
-}
-
-.range-endpoint {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.dropdown-icon {
     width: 16px;
     height: 16px;
-    background-color: #ffc107;
+    color: #10b981;
+}
+
+.price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+
+
+.slider-wrapper {
+    position: relative;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+}
+
+.slider-range {
+    position: absolute;
+    height: 8px;
+    background: #10b981;
+    border-radius: 4px;
+    transition: all 0.1s ease;
+}
+
+.slider-input {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider-input::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #fde047;
+    border: 2px solid white;
     border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.range-endpoint.left {
-    left: -8px;
+.slider-input::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #fde047;
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    appearance: none;
 }
 
-.range-endpoint.right {
-    right: -8px;
+.slider-input::-webkit-slider-track {
+    background: transparent;
+    height: 8px;
 }
+
+.slider-input::-moz-range-track {
+    background: transparent;
+    height: 8px;
+    border: none;
+}
+
+.slider-input:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+}
+
+.slider-input:active::-moz-range-thumb {
+    transform: scale(1.1);
+}
+
+.min-slider {
+    z-index: 1;
+}
+
+.max-slider {
+    z-index: 2;
+}
+
+
 
 
 
@@ -424,6 +499,297 @@ input:-webkit-autofill:active {
     font-weight: bold;
     color: black;
     font-family: var(--main-font);
+}
+
+
+
+
+
+/* Seat Modal  */
+
+body.seat-modal-open {
+    overflow: hidden;
+}
+
+
+.seat-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1999;
+    display: none;
+}
+
+.seat-modal-container {
+    background-color: white;
+    width: 820px;
+    max-width: 95vw;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+    overflow: hidden;
+
+}
+
+.modal-seats-div {
+    display: flex;
+    padding: 20px 60px 0px 60px;
+    justify-content: space-between;
+}
+
+.seat-modal-btns {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.seat-modal-btns a {
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #008000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--main-font);
+}
+
+.modal-cross-icon {
+    cursor: pointer;
+}
+
+
+.modal-seat-left-div {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+
+}
+
+
+
+.seat-row-1 {
+    display: flex;
+    gap: 8px;
+
+}
+
+.seat-row-2 {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 8px;
+
+}
+
+.seat-row-3 {
+    display: flex;
+    gap: 8px;
+
+}
+
+.seat-row-4 {
+    display: flex;
+    gap: 8px;
+
+}
+
+.seat {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ed013c;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+
+.modal-seat-right-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.selected-seat,
+.reserved-seat,
+.female-seat,
+.available-seat {
+    display: flex;
+    font-family: var(--main-font);
+    align-items: center;
+    gap: 10px;
+}
+
+.selected-seat .box-seat {
+    height: 40px;
+    width: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #008000;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.available-seat .box-seat {
+    height: 40px;
+    width: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.reserved-seat .box-seat {
+    height: 40px;
+    width: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ed013c;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.female-seat .box-seat {
+    height: 40px;
+    width: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff24e4;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.total-amount-of-seat {
+    font-family: var(--main-font);
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    margin-top: 25px;
+}
+
+.total-amount-of-seat p span {
+    font-size: 28px;
+}
+
+.seat-counts p {
+    font-size: 16px;
+    font-family: var(--main-font);
+    color: #000;
+    font-weight: 500;
+}
+
+.seat-modal-footer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    margin-right: 8px;
+    padding: 10px 0px;
+}
+
+.seat-modal-footer a {
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: white;
+    background-color: #008000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: var(--main-font);
+}
+
+
+
+/* Gender modal:  */
+
+
+.gender-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gender-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    font-family: var(--main-font);
+}
+
+.gender-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.gender-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.gender-btn.male {
+    background-color: #008000;
+    color: white;
+    padding: 10px 30px;
+}
+
+.gender-btn.female {
+    background-color: #008000;
+    color: white;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+
+
+@media(max-width:1100px) {
+    .booking-details-container {
+        padding: 120px 70px;
+    }
 }
 
 
