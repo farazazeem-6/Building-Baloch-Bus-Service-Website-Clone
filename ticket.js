@@ -2,7 +2,7 @@ const modifySearchBtn = document.querySelector('.right-booking-heading a');
 const targetElement = document.querySelector('.search-form');
 
 modifySearchBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // avoid scroll to top
+    e.preventDefault(); 
     targetElement.classList.toggle('active-2');
 });
 
@@ -10,12 +10,11 @@ modifySearchBtn.addEventListener('click', (e) => {
 
 
 function formatDate(dateString) {
-    const date = new Date(dateString); // Converts "2025-07-11" to a Date object
+    const date = new Date(dateString); 
 
     const options = { month: 'short', day: 'numeric', weekday: 'long' };
-    const formatted = date.toLocaleDateString('en-US', options); // e.g., "Fri, Jul 11"
+    const formatted = date.toLocaleDateString('en-US', options); 
 
-    // Rearranging to match: "Jul 11, Friday"
     const parts = formatted.split(', ');
     return `${parts[1]}, ${parts[0]}`;
 }
@@ -46,7 +45,6 @@ function capitalizeWords(str) {
 const formattedOrigin = capitalizeWords(origin);
 const formattedDestination = capitalizeWords(destination);
 
-// Apply to elements (if multiple exist)
 document.querySelectorAll('.dep-location').forEach(el => {
     el.innerText = formattedDestination;
 });
@@ -152,8 +150,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // Seat modal js 
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const seatModal = document.querySelector('.seat-modal-overlay');
     const seatcloseIcon = document.querySelector('.modal-cross-icon img');
@@ -195,8 +191,6 @@ function resetUserSelectedSeats() {
 
 
 
-
-
 // Seat Selection JS:
 
 const seats = document.querySelectorAll('.seat');
@@ -228,14 +222,12 @@ function updateSeatListText(seatsArray) {
     totalPrice.innerText = seatsArray.length * pricePerSeat;
 }
 
-// ✅ Seat click handler
 seats.forEach(seat => {
     seat.addEventListener('click', () => {
         const bg = window.getComputedStyle(seat).backgroundColor;
         const seatText = seat.innerText.trim();
         let selectedSeats = getSelectedSeats();
 
-        // ✅ Select seat
         if (bg === 'rgb(255, 255, 255)') {
             if (selectedSeats.length >= 5) {
                 alert("You can only select up to 5 seats.");
@@ -246,7 +238,6 @@ seats.forEach(seat => {
             document.body.style.overflow = 'hidden';
         }
 
-        // ✅ Deselect seat
         else if (bg === 'rgb(0, 128, 0)') {
             seat.style.backgroundColor = 'white';
             seat.style.color = 'black';
