@@ -431,10 +431,10 @@
         <div class="seat-modal-container">
             <div class="modal-header">
                 <div class="seat-modal-btns">
-                    <a href="#" onclick="return false">
-                        1.Select Seates
+                    <a href="" onclick="" id="select-seat-btn">
+                        1.Select Seats
                     </a>
-                    <a style="background-color: #ece8e8; color:black ;" href="#" onclick="return false">
+                    <a style="background-color: #ece8e8; color:black ;" href="" onclick="" id="select-terminal-btn">
                         2.Select Terminal
                     </a>
                 </div>
@@ -443,6 +443,21 @@
                 </div>
 
             </div>
+
+
+
+
+            <div class="select-terminal-container">
+                <h1>Select Terminal</h1>
+
+                <select class="form-select" aria-label="Default select example">
+                    <option value="">Select Terminal</option>
+                    <option>BALOCH TRML CHOWK AZAM</option>
+                </select>
+            </div>
+
+
+
 
 
             <div class="modal-seats-div">
@@ -579,13 +594,22 @@
             <hr>
 
             <div class="seat-modal-footer">
-                <a style="background-color: #ece8e8; color:black ;" href="#" onclick="return false">
+                <a style="background-color: #ece8e8; color:black ;" href="" onclick="" id="modal-back-btn">
                     Back
                 </a>
-                <a href="#" onclick="return false">
+                <a href="select-terminal.html" id="modal-next-btn"
+                    style="pointer-events: none; opacity: 0.5; background-color: #008000;">
                     Next
                 </a>
+
             </div>
+
+
+
+
+
+
+
 
         </div>
 
@@ -604,6 +628,8 @@
             </div>
         </div>
     </div>
+
+
 
 
     <script src="/home.js"></script>

@@ -2,7 +2,7 @@ const modifySearchBtn = document.querySelector('.right-booking-heading a');
 const targetElement = document.querySelector('.search-form');
 
 modifySearchBtn.addEventListener('click', (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     targetElement.classList.toggle('active-2');
 });
 
@@ -10,10 +10,10 @@ modifySearchBtn.addEventListener('click', (e) => {
 
 
 function formatDate(dateString) {
-    const date = new Date(dateString); 
+    const date = new Date(dateString);
 
     const options = { month: 'short', day: 'numeric', weekday: 'long' };
-    const formatted = date.toLocaleDateString('en-US', options); 
+    const formatted = date.toLocaleDateString('en-US', options);
 
     const parts = formatted.split(', ');
     return `${parts[1]}, ${parts[0]}`;
@@ -58,90 +58,6 @@ document.querySelectorAll('.date').forEach(da => {
 })
 
 
-
-
-
-// Range Slider JS 
-
-document.addEventListener("DOMContentLoaded", function () {
-    const minSlider = document.getElementById('minSlider');
-    const maxSlider = document.getElementById('maxSlider');
-    const minPrice = document.getElementById('minPrice');
-    const maxPrice = document.getElementById('maxPrice');
-    const sliderRange = document.getElementById('sliderRange');
-    const currentRange = document.getElementById('currentRange');
-    const decreaseBtn = document.getElementById('decreaseBtn');
-    const increaseBtn = document.getElementById('increaseBtn');
-
-    const MIN_VALUE = 500;
-    const MAX_VALUE = 3000;
-    const STEP = 50;
-
-    function updateSlider() {
-        const minValue = parseInt(minSlider.value);
-        const maxValue = parseInt(maxSlider.value);
-
-        if (minValue >= maxValue) minSlider.value = maxValue - 1;
-        if (maxValue <= minValue) maxSlider.value = minValue + 1;
-
-        const finalMinValue = parseInt(minSlider.value);
-        const finalMaxValue = parseInt(maxSlider.value);
-
-        minPrice.textContent = `PKR ${finalMinValue}`;
-        maxPrice.textContent = `PKR ${finalMaxValue}`;
-        currentRange.textContent = `Range: PKR ${finalMinValue} - PKR ${finalMaxValue}`;
-
-        const minPercent = ((finalMinValue - MIN_VALUE) / (MAX_VALUE - MIN_VALUE)) * 100;
-        const maxPercent = ((finalMaxValue - MIN_VALUE) / (MAX_VALUE - MIN_VALUE)) * 100;
-
-        sliderRange.style.left = `${minPercent}%`;
-        sliderRange.style.width = `${maxPercent - minPercent}%`;
-    }
-
-    function increaseBoth() {
-        const minValue = parseInt(minSlider.value);
-        const maxValue = parseInt(maxSlider.value);
-        if (maxValue + STEP <= MAX_VALUE) {
-            minSlider.value = minValue + STEP;
-            maxSlider.value = maxValue + STEP;
-            updateSlider();
-        }
-    }
-
-    function decreaseBoth() {
-        const minValue = parseInt(minSlider.value);
-        const maxValue = parseInt(maxSlider.value);
-        if (minValue - STEP >= MIN_VALUE) {
-            minSlider.value = minValue - STEP;
-            maxSlider.value = maxValue - STEP;
-            updateSlider();
-        }
-    }
-
-    // Event listeners
-    minSlider.addEventListener('input', updateSlider);
-    maxSlider.addEventListener('input', updateSlider);
-    increaseBtn.addEventListener('click', increaseBoth);
-    decreaseBtn.addEventListener('click', decreaseBoth);
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowUp' || e.key === '+') {
-            e.preventDefault();
-            increaseBoth();
-        } else if (e.key === 'ArrowDown' || e.key === '-') {
-            e.preventDefault();
-            decreaseBoth();
-        }
-    });
-
-    // Smooth transitions
-    minSlider.addEventListener('mousedown', () => minSlider.style.transition = 'none');
-    maxSlider.addEventListener('mousedown', () => maxSlider.style.transition = 'none');
-    minSlider.addEventListener('mouseup', () => minSlider.style.transition = 'all 0.1s ease');
-    maxSlider.addEventListener('mouseup', () => maxSlider.style.transition = 'all 0.1s ease');
-
-    updateSlider();
-});
 
 
 
@@ -205,7 +121,7 @@ const totalPrice = document.querySelector('.total-amount-of-seat p span');
 let selectedSeat = null;
 
 function extractPrice(text) {
-    const match = text.match(/\d+/g); // Find all numbers
+    const match = text.match(/\d+/g);
     return match ? parseInt(match.join("")) : 0;
 }
 
@@ -220,7 +136,10 @@ function updateSeatListText(seatsArray) {
     seatNo.innerText = `${seatsArray.join(", ")}`;
     const pricePerSeat = extractPrice(seatPrice.innerText);
     totalPrice.innerText = seatsArray.length * pricePerSeat;
+
+    updateNextButtonState();
 }
+
 
 seats.forEach(seat => {
     seat.addEventListener('click', () => {
@@ -256,6 +175,8 @@ closeGenderModal.addEventListener('click', () => {
     selectedSeat = null;
 });
 
+
+
 [maleBtn, femaleBtn].forEach(btn => {
     btn.addEventListener('click', () => {
         if (selectedSeat) {
@@ -269,7 +190,13 @@ closeGenderModal.addEventListener('click', () => {
             if (!selectedSeats.includes(seatText)) {
                 selectedSeats.push(seatText);
             }
+
             updateSeatListText(selectedSeats);
+
+            localStorage.setItem("selectedSeats", JSON.stringify(selectedSeats));
+            localStorage.setItem("totalPrice", totalPrice.innerText);
+
+            updateNextButtonState();
         }
 
         genderModal.style.display = 'none';
@@ -281,3 +208,111 @@ closeGenderModal.addEventListener('click', () => {
 
 
 
+
+
+// Modal Buttons JS 
+
+
+const Modalpage1 = document.querySelector('.modal-seats-div');
+const Modalpage2 = document.querySelector('.select-terminal-container');
+const ModalBtn1 = document.querySelector('#select-seat-btn');
+const ModalBtn2 = document.querySelector('#select-terminal-btn');
+const ModalBackBtn = document.querySelector('#modal-back-btn');
+const ModalNextBtn = document.querySelector('#modal-next-btn');
+
+ModalBtn1.addEventListener('click', function (e) {
+    e.preventDefault();
+    Modalpage1.style.display = 'flex';
+    Modalpage2.style.display = 'none';
+
+    ModalBtn1.style.backgroundColor = '#008000';
+    ModalBtn1.style.color = 'white';
+
+    ModalBtn2.style.backgroundColor = '#ece8e8';
+    ModalBtn2.style.color = '#000';
+
+    ModalNextBtn.innerText = 'Next';
+});
+
+ModalBtn2.addEventListener('click', function (e) {
+    e.preventDefault();
+    Modalpage1.style.display = 'none';
+    Modalpage2.style.display = 'block';
+
+    ModalBtn2.style.backgroundColor = '#008000';
+    ModalBtn2.style.color = '#ece8e8';
+
+    ModalBtn1.style.backgroundColor = '#ece8e8';
+    ModalBtn1.style.color = '#000';
+
+    ModalNextBtn.innerText = 'Check Out'
+});
+
+ModalBackBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    Modalpage1.style.display = 'flex';
+    Modalpage2.style.display = 'none';
+
+
+    ModalBtn1.style.backgroundColor = '#008000';
+    ModalBtn1.style.color = 'white';
+
+    ModalBtn2.style.backgroundColor = '#ece8e8';
+    ModalBtn2.style.color = '#000';
+
+
+    ModalNextBtn.innerText = 'Next';
+});
+
+
+
+function updateNextButtonState() {
+    const selectedSeats = document.querySelector('.seat-counts p span').innerText.split(',').filter(Boolean);
+
+    if (selectedSeats.length === 0) {
+        ModalNextBtn.style.pointerEvents = 'none';
+        ModalNextBtn.style.opacity = '0.9';
+        ModalNextBtn.style.backgroundColor = '#008000';
+        ModalNextBtn.style.color = 'white';
+        ModalNextBtn.removeAttribute('href');
+    } else {
+        ModalNextBtn.style.pointerEvents = 'auto';
+        ModalNextBtn.style.opacity = '1';
+        ModalNextBtn.style.bakgroundColor = '#008000';
+        ModalNextBtn.setAttribute('href', 'payment.html');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', updateNextButtonState);
+
+
+
+
+ModalNextBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Get values from localStorage
+    const departureCity = localStorage.getItem("originCity") || '';
+    const destinationCity = localStorage.getItem("destinationCity") || '';
+    const travelDate = localStorage.getItem("travelDate") || '';
+
+    // Get values from DOM
+    const selectedTerminal = document.querySelector('#selected-terminal')?.value || '';
+    const totalPrice = document.querySelector('.total-amount-of-seat p span')?.innerText || '0';
+    const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
+
+    // Save to localStorage
+    const bookingInfo = {
+        departureCity,
+        destinationCity,
+        travelDate,
+        selectedTerminal,
+        selectedSeats,
+        totalTicketPrice: totalPrice
+    };
+
+    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+
+
+    window.location.href = 'payment.html';
+});

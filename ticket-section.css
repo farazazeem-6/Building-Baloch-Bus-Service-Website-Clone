@@ -791,6 +791,56 @@ body.seat-modal-open {
 }
 
 
+/* Select Terminal  */
+
+.select-terminal-container {
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+    display: none;
+    padding-bottom: 224px;
+
+}
+
+.select-terminal-container h1 {
+    font-size: 16px;
+    font-family: var(--main-font);
+    color: #000;
+    font-weight: 300;
+}
+
+
+.select-terminal-container select:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--color-lite-green);
+    font-family: var(--main-font);
+    font-weight: bold;
+    color: #354953;
+}
+
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.select-terminal-container textarea:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid var(--color-lite-green);
+    font-family: var(--main-font);
+    font-weight: bold;
+    color: #354953;
+}
+
 
 
 @media(max-width:1100px) {
