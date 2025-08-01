@@ -52,10 +52,6 @@ li {
 }
 
 
-
-
-
-
 /* Header CSS  */
 
 .ham-burger-btn {
@@ -155,7 +151,8 @@ header {
 
 .custom-dropdown {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
+    display: none;
 }
 
 .custom-dropdown-toggle {
@@ -187,6 +184,10 @@ header {
     padding: 0;
     display: none;
     z-index: 1000;
+    display: none !important;
+}
+.custom-dropdown-menu.show {
+  display: block !important;
 }
 
 .custom-dropdown-menu li a {
@@ -201,29 +202,6 @@ header {
     background-color: #f8f9fa;
 }
 
-
-
-
-
-
-/* .bs-dropdown .btn {
-    box-shadow: none !important;
-    background-color: transparent !important;
-    color: var(--color-black);
-    border: none;
-    font-family: var(--main-font);
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.bs-dropdown .dropdown-menu {
-    box-shadow: none !important;
-    /* border: none; */
-/* } */
-
-.bs-dropdown .dropdown-item:hover {
-    background-color: transparent !important;
-}
 
 /* Home Section  */
 
@@ -313,7 +291,6 @@ header {
     width: 250px;
 
 }
-
 
 /* Booking Inputs  */
 

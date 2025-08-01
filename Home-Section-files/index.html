@@ -61,7 +61,8 @@
                 <li><a href="/Contact-Section-files/contact.html"><i class="fa-solid fa-envelope"></i>
                         <span>Contact
                             Us</span></a></li>
-                <li><a href="/Log-in-Section-files/login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <li id="loginSignup-li"><a href="/Log-in-Section-files/login.html"><i
+                            class="fa-solid fa-arrow-right-to-bracket"></i>
                         <span>Login/Signup</span>
                     </a></li>
 
@@ -69,14 +70,13 @@
 
                 <div class="custom-dropdown">
                     <button class="custom-dropdown-toggle" id="customDropdownBtn">
-                        Faraz Azeem ▾
+                        <span><i class="fa-solid fa-user"></i></span> Faraz Azeem ▾
                     </button>
                     <ul class="custom-dropdown-menu" id="customDropdownMenu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </div>
-
 
 
             </ul>
@@ -246,7 +246,6 @@
 
         </div>
     </section>
-
 
 
     <!-- Add Boxes Section  -->
@@ -523,9 +522,7 @@
         </p>
     </div>
 
-
     <!-- Modal  -->
-
 
     <div id="forget-modal" class="forget-modal">
         <div class="modal-data">
@@ -545,6 +542,8 @@
 
 
 
+    <script type="module" src="/JS-firebase-config-js/JSfirebase-config.js"></script>
+    <script type="module" src="/JS-auth-check-js/auth-check.js"></script>
 
 
     <script src="/Home-Section-files/home.js"></script>

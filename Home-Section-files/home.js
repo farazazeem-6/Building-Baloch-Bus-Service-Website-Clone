@@ -13,88 +13,89 @@ if (hamburgerBtn && navButtons && cargoContainer) {
 
 
 // ------------------ Search Validation ------------------
-const searchBtn = document.getElementsByClassName('search-button');
-const OrigindropdownMenu = document.getElementById('origin-dropdown-menu');
-const DesdropdownMenu = document.getElementById('destination-dropdown-menu');
+document.addEventListener('DOMContentLoaded', function () {
+  const searchBtn = document.getElementsByClassName('search-button');
+  const OrigindropdownMenu = document.getElementById('origin-dropdown-menu');
+  const DesdropdownMenu = document.getElementById('destination-dropdown-menu');
 
+  let selectedOrigin = null;
+  let selectedDes = null;
 
-let selectedOrigin = null;
+  if (OrigindropdownMenu) {
+    OrigindropdownMenu.addEventListener('click', function (event) {
+      const clickedOption = event.target.closest('.selection-dropdown-option');
 
-OrigindropdownMenu.addEventListener('click', function (event) {
-  const clickedOption = event.target.closest('.selection-dropdown-option');
+      if (clickedOption) {
+        selectedOrigin = clickedOption.getAttribute('data-value');
+        console.log('Selected origin:', selectedOrigin);
 
-  if (clickedOption) {
-    selectedOrigin = clickedOption.getAttribute('data-value');
-    console.log('Selected origin:', selectedOrigin);
-    document.querySelector('.dep-error-div').innerText = '';
+        const depErrorDiv = document.querySelector('.dep-error-div');
+        if (depErrorDiv) depErrorDiv.innerText = '';
 
-    // Optional: highlight selected option
-    document.querySelectorAll('.selection-dropdown-option').forEach(option => {
-      option.classList.remove('selected');
+        document.querySelectorAll('.selection-dropdown-option').forEach(option => {
+          option.classList.remove('selected');
+        });
+        // clickedOption.classList.add('selected');
+      }
     });
-    // clickedOption.classList.add('selected');
   }
-});
 
+  if (DesdropdownMenu) {
+    DesdropdownMenu.addEventListener('click', function (event) {
+      const clickedOption = event.target.closest('.selection-dropdown-option');
 
+      if (clickedOption) {
+        selectedDes = clickedOption.getAttribute('data-value');
+        console.log('Selected Des:', selectedDes);
 
+        const desErrorDiv = document.querySelector('.des-error-div');
+        if (desErrorDiv) desErrorDiv.innerText = '';
 
-
-let selectedDes = null;
-
-
-DesdropdownMenu.addEventListener('click', function (event) {
-  const clickedOption = event.target.closest('.selection-dropdown-option');
-
-  if (clickedOption) {
-    selectedDes = clickedOption.getAttribute('data-value');
-    console.log('Selected Des:', selectedDes);
-    document.querySelector('.des-error-div').innerText = '';
-
-    // Optional: highlight selected option
-    document.querySelectorAll('.selection-dropdown-option').forEach(option => {
-      option.classList.remove('selected');
+        document.querySelectorAll('.selection-dropdown-option').forEach(option => {
+          option.classList.remove('selected');
+        });
+        // clickedOption.classList.add('selected');
+      }
     });
-    // clickedOption.classList.add('selected');
-  }
-});
-
-
-function CheckValidation() {
-  const DesError = document.querySelector('.des-error-div');
-  const DepError = document.querySelector('.dep-error-div');
-
-  const OriginValue = selectedOrigin
-  const DesValue = selectedDes
-  const travelDate = document.getElementById('datepicker')?.value.trim();
-
-  if (DesError) DesError.innerText = '';
-  if (DepError) DepError.innerText = '';
-
-  if (!OriginValue) {
-    if (DepError) DepError.innerText = 'Select a departure city';
-    return;
   }
 
-  if (!DesValue) {
-    if (DesError) DesError.innerText = 'Select a destination city';
-    return;
-  }
+  function CheckValidation() {
+    const DesError = document.querySelector('.des-error-div');
+    const DepError = document.querySelector('.dep-error-div');
+    const travelDate = document.getElementById('datepicker')?.value.trim();
 
-  if (OriginValue === DesValue) {
-    if (DesError) DesError.innerText = 'Departure and Destination cities cannot be same';
-    return;
-  }
-
-  localStorage.setItem("originCity", OriginValue);
-  localStorage.setItem("destinationCity", DesValue);
-  localStorage.setItem("travelDate", travelDate);
-
-  setTimeout(() => {
     if (DesError) DesError.innerText = '';
-    window.location.href = "/Ticket-Section-files/ticket-section.html";
-  }, 1000);
-}
+    if (DepError) DepError.innerText = '';
+
+    if (!selectedOrigin) {
+      if (DepError) DepError.innerText = 'Select a departure city';
+      return;
+    }
+
+    if (!selectedDes) {
+      if (DesError) DesError.innerText = 'Select a destination city';
+      return;
+    }
+
+    if (selectedOrigin === selectedDes) {
+      if (DesError) DesError.innerText = 'Departure and Destination cities cannot be same';
+      return;
+    }
+
+    localStorage.setItem("originCity", selectedOrigin);
+    localStorage.setItem("destinationCity", selectedDes);
+    localStorage.setItem("travelDate", travelDate);
+
+    setTimeout(() => {
+      if (DesError) DesError.innerText = '';
+      window.location.href = "/Ticket-Section-files/ticket-section.html";
+    }, 1000);
+  }
+
+  Array.from(searchBtn).forEach(btn => {
+    btn.addEventListener('click', CheckValidation);
+  });
+});
 
 // // ------------------ Card Carousel ------------------
 const cards = document.querySelectorAll('.card');
@@ -260,7 +261,7 @@ class CustomDropdown {
     this.updatePosition();
     this.menu.classList.add('show');
 
-    
+
     const firstOption = this.menu.querySelector('.selection-dropdown-option');
     if (firstOption) {
       firstOption.focus();
@@ -275,7 +276,7 @@ class CustomDropdown {
   }
 
   closeOtherDropdowns() {
-    
+
     if (window.dropdownInstances) {
       window.dropdownInstances.forEach(instance => {
         if (instance !== this && instance.isOpen) {
@@ -338,16 +339,19 @@ window.dropdownInstances.push(originDropdown, destinationDropdown);
 
 // custom dropdown for profile :
 
- const dropdownBtn = document.getElementById('customDropdownBtn');
-  const dropdownMenu = document.getElementById('customDropdownMenu');
+document.addEventListener('DOMContentLoaded', function () {
+  const ProfiledropdownBtn = document.getElementById('customDropdownBtn');
+  const ProfiledropdownMenu = document.getElementById('customDropdownMenu');
 
-  dropdownMenu.style.display = 'none';
+  if (ProfiledropdownBtn && ProfiledropdownMenu) {
+    ProfiledropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      ProfiledropdownMenu.classList.toggle('show');
+    });
 
-  dropdownBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); 
-    const isVisible = dropdownMenu.style.display === 'block';
-    dropdownMenu.style.display = isVisible ? 'none' : 'block';
-  });
+    document.addEventListener('click', () => {
+      ProfiledropdownMenu.classList.remove('show');
+    });
+  }
+});
 
-  document.addEventListener('click', () => {
-    dropdownMenu.style.display = 'none';})

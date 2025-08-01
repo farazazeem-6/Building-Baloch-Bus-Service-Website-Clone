@@ -60,12 +60,27 @@
                 <li><a href="/Contact-Section-files/contact.html"><i class="fa-solid fa-envelope"></i>
                         <span>Contact
                             Us</span></a></li>
-                <li><a href="/Log-in-Section-files/login.html" class="active"><i
+                <li id="loginSignup-li"><a href="/Log-in-Section-files/login.html" class="active"><i
                             class="fa-solid fa-arrow-right-to-bracket"></i>
                         <span>Login/Signup</span>
                     </a></li>
+
+
+
+                <div class="custom-dropdown">
+                    <button class="custom-dropdown-toggle" id="customDropdownBtn">
+                        <span><i class="fa-solid fa-user"></i></span> Faraz Azeem ▾
+                    </button>
+                    <ul class="custom-dropdown-menu" id="customDropdownMenu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+
+
             </ul>
         </div>
+
 
         <div class="cargo-container">
             <a href="#"><i class="fa-solid fa-truck"></i> <span>Cargo Tracking</span></a>
@@ -88,7 +103,7 @@
             <!-- Login Heading Column -->
             <div class="col-md-6 order-2 order-md-1" id="login-details">
 
-                <h3>Welcome to Baloch Transport Services Login</h3>
+                <h3 style="font-family: 'Montserrat', sans-serif;">Welcome to Baloch Transport Services Login</h3>
                 <p>Please log in to your account to continue making your bookings and manage your travels with
                     us</p>
                 <form action="" id="form-1">
@@ -101,7 +116,7 @@
                 </form>
                 <form action="" id="radio-form">
                     <div class="remember-section">
-                        <div class="remember-me">
+                        <div class="remember-me" style="display: none;">
                             <input type="checkbox" id="remember" name="remember">
                             <label for="remember">Remember me</label>
                         </div>
