@@ -1,7 +1,3 @@
-
-
-
-
 const Username = document.getElementById('username');
 const UserPassword = document.getElementById('password');
 
@@ -33,9 +29,6 @@ ForgetBtn.addEventListener('click', function (e) {
 })
 
 
-
-
-
 import { app } from "/JS-firebase-config-js/JSfirebase-config.js"
 import {
     getAuth,
@@ -46,7 +39,6 @@ import {
 
 const auth = getAuth(app);
 
-//  Attach this function to your button
 window.CheckValidationsForLogin = function () {
     const email = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -110,7 +102,6 @@ window.CheckForgetValidation = function () {
     let isValidForgetEmail = true;
     errorDiv.innerText = '';
 
-    // ✅ Your custom validations
     if (GetforgetValue === "") {
         errorDiv.innerText = 'Email required';
         isValidForgetEmail = false;
@@ -119,14 +110,13 @@ window.CheckForgetValidation = function () {
         isValidForgetEmail = false;
     }
 
-    // ✅ Firebase action
     if (isValidForgetEmail) {
         sendPasswordResetEmail(auth, GetforgetValue)
             .then(() => {
-                alert('✅ Verification link sent!');
+                alert('Verification link sent!');
                 forgetModal1.style.display = 'none';
                 document.body.classList.remove('modal-open');
-                forgetEmail.value = ""; // Optional: clear field
+                forgetEmail.value = ""; 
             })
             .catch((error) => {
                 // Firebase error handling
@@ -141,7 +131,7 @@ window.CheckForgetValidation = function () {
     }
 };
 
-// ✅ Clear error on typing again
+// Clear error on typing again
 forgetEmail.addEventListener('input', () => {
     document.querySelector('.invalid-forget-email').innerText = '';
 });
