@@ -1,0 +1,99 @@
+:root {
+    --color-green: rgb(0, 128, 0);
+    --color-lite-green: #28a745;
+    --main-font: "Montserrat", sans-serif;
+    --color-black: #434343;
+    --header-color: #f8f9fa;
+}
+
+.gender-error {
+    font-size: 13px;
+    color: red;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+#form-no-1 label {
+    font-weight: 400;
+    font-family: var(--main-font);
+    color: #212529;
+    margin-bottom: .5rem;
+    text-align: left;
+    margin-top: 1rem;
+
+}
+
+#form-no-2 label {
+    font-weight: 400;
+    font-family: var(--main-font);
+    color: #212529;
+    margin-bottom: .5rem;
+    text-align: left;
+    margin-top: 1rem;
+
+}
+
+#form-no-3 label {
+    font-weight: 400;
+    font-family: var(--main-font);
+    color: #212529;
+    margin-bottom: .5rem;
+    text-align: left;
+    margin-top: 1rem;
+
+}
+
+#form-no-3 select {
+    border: 1px solid #bbb;
+    background-color: #fff;
+    padding: 8px 90px 7px 5px;
+    border-radius: 3px;
+    /* margin-top: 1px; */
+}
+
+#form-no-4 label {
+    font-weight: 400;
+    font-family: var(--main-font);
+    color: #212529;
+    margin-bottom: .5rem;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.create-acc-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forms-container input {
+    font-size: 14px;
+}
+
+.forms-container input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid var(--color-lite-green);
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+#login-details {
+    padding: 100px 5%;
+}
+
+@media(max-width:600px) {
+    #login-details {
+        padding: 50px 5%;
+    }
+}
