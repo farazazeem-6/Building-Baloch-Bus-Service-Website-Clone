@@ -66,18 +66,6 @@
                     </a></li>
 
 
-
-                <div class="custom-dropdown">
-                    <button class="custom-dropdown-toggle" id="customDropdownBtn">
-                        <span><i class="fa-solid fa-user"></i></span> Faraz Azeem ▾
-                    </button>
-                    <ul class="custom-dropdown-menu" id="customDropdownMenu">
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-                </div>
-
-
             </ul>
         </div>
 
@@ -100,20 +88,23 @@
 
             </div>
 
-            <!-- Login Heading Column -->
             <div class="col-md-6 order-2 order-md-1" id="login-details">
 
                 <h3 style="font-family: 'Montserrat', sans-serif;">Welcome to Baloch Transport Services Login</h3>
                 <p>Please log in to your account to continue making your bookings and manage your travels with
                     us</p>
                 <form action="" id="form-1">
-                    <label for="username">Username</label> <br>
-                    <input type="text" name="username" id="username" placeholder="your-email@gmail.com">
+                    <label for="username">Email or Phone No</label> <br>
+                    <input type="text" name="username" id="username" placeholder="Enter email or phone no">
                     <div class="username-error"></div>
                     <label for="password">Password</label> <br>
-                    <input type="password" name="password" id="password" placeholder="Your Password">
+                    <input type="password" name="password" id="password" placeholder="Password">
                     <div class="password-error"></div>
                 </form>
+                <div id="otpSection" style="display: none;">
+                    <input type="text" id="otpInput" placeholder="Enter OTP">
+                    <button id="verifyOtpBtn">Verify OTP</button>
+                </div>
                 <form action="" id="radio-form">
                     <div class="remember-section">
                         <div class="remember-me" style="display: none;">
@@ -275,130 +266,11 @@
     </div>
 
     <script src="/Home-Section-files/home.js"></script>
-    <script src="/Log-in-Section-files/login.js"></script>
+    <script type="module" src="/Log-in-Section-files/login.js"></script>
+    <script type="module" src="/JS-firebase-config-js/JSfirebase-config.js"></script>
 
     <!-- FireBase SDK code -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-        import {
-            getAuth,
-            signInWithEmailAndPassword,
-            sendPasswordResetEmail
-        } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyBByaLNk5eYEnV4YfH7LoMcNkLzBV1j78U",
-            authDomain: "mypractice-project-bus-service.firebaseapp.com",
-            projectId: "mypractice-project-bus-service",
-            storageBucket: "mypractice-project-bus-service.firebasestorage.app",
-            messagingSenderId: "1034194037517",
-            appId: "1:1034194037517:web:42a3bb5789a6468722de44"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        //  Attach this function to your button
-        window.CheckValidationsForLogin = function () {
-            const email = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            const GetUserName = Username.value.trim();
-            const GetUserPassword = UserPassword.value.trim();
-
-            let isValidLoginInput = true;
-
-            document.querySelector('.username-error').innerText = '';
-            document.querySelector('.password-error').innerText = '';
-
-
-            const emailRegex = /^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/;
-            const usernameRegex = /^[a-zA-Z0-9._]{4,20}$/;
-
-
-            if (GetUserName === "") {
-                document.querySelector('.username-error').innerText = 'Username or email required';
-                isValidLoginInput = false;
-            } else if (!emailRegex.test(GetUserName) && !usernameRegex.test(GetUserName)) {
-                document.querySelector('.username-error').innerText = 'Invalid username or email';
-                isValidLoginInput = false;
-            }
-
-            if (GetUserPassword === "") {
-                document.querySelector('.password-error').innerText = 'Password required';
-                isValidLoginInput = false;
-            }
-
-            else if (GetUserPassword.length < 8) {
-                document.querySelector('.password-error').innerText = 'Password must be at least 8 characters';
-                isValidLoginInput = false;
-            }
-            else if (GetUserPassword.length > 20) {
-                document.querySelector('.password-error').innerText = 'Too long password (maximum-20)';
-                isValidLoginInput = false;
-            }
-
-            if (isValidLoginInput) {
-                signInWithEmailAndPassword(auth, email, password)
-                    .then((userCredential) => {
-                        console.log(userCredential);
-                        alert("Login successful!", userCredential);
-                        window.location.href = "/Home-Section-files/index.html";
-                    })
-                    .catch((error) => {
-                        document.querySelector(".username-error").textContent = 'invalid email or password';
-                        document.querySelector(".password-error").textContent = "";
-                    });
-            }
-
-        };
-
-        // Make sure this is exposed to global scope:
-        window.CheckForgetValidation = function () {
-            const emailRegex = /^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/;
-            const GetforgetValue = forgetEmail.value.trim();
-            const errorDiv = document.querySelector('.invalid-forget-email');
-
-            let isValidForgetEmail = true;
-            errorDiv.innerText = '';
-
-            // ✅ Your custom validations
-            if (GetforgetValue === "") {
-                errorDiv.innerText = 'Email required';
-                isValidForgetEmail = false;
-            } else if (!emailRegex.test(GetforgetValue)) {
-                errorDiv.innerText = 'Invalid email';
-                isValidForgetEmail = false;
-            }
-
-            // ✅ Firebase action
-            if (isValidForgetEmail) {
-                sendPasswordResetEmail(auth, GetforgetValue)
-                    .then(() => {
-                        alert('✅ Verification link sent!');
-                        forgetModal1.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                        forgetEmail.value = ""; // Optional: clear field
-                    })
-                    .catch((error) => {
-                        // Firebase error handling
-                        if (error.code === 'auth/user-not-found') {
-                            errorDiv.innerText = 'No account found with this email.';
-                        } else if (error.code === 'auth/invalid-email') {
-                            errorDiv.innerText = 'Invalid email format.';
-                        } else {
-                            errorDiv.innerText = 'Error: ' + error.message;
-                        }
-                    });
-            }
-        };
-
-        // ✅ Clear error on typing again
-        forgetEmail.addEventListener('input', () => {
-            document.querySelector('.invalid-forget-email').innerText = '';
-        });
-
-    </script>
+    
 
 </body>
 

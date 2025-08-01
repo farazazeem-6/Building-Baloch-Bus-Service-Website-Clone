@@ -326,12 +326,25 @@ class CustomDropdown {
 }
 
 // Initialize dropdowns and store instances globally
-window.dropdownInstances = [];
+function safeDropdownInit(buttonId, menuId, textId, placeholder) {
+  const btn = document.getElementById(buttonId);
+  const menu = document.getElementById(menuId);
+  const text = document.getElementById(textId);
 
-const originDropdown = new CustomDropdown('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');
-const destinationDropdown = new CustomDropdown('destination-dropdown-btn', 'destination-dropdown-menu', 'destination-dropdown-text', 'Select Destination');
+  if (btn && menu && text) {
+    const instance = new CustomDropdown(buttonId, menuId, textId, placeholder);
+    window.dropdownInstances.push(instance);
+  } else {
+    console.warn('Dropdown elements not found:', { buttonId, menuId, textId });
+  }
+}
 
-window.dropdownInstances.push(originDropdown, destinationDropdown);
+window.dropdownInstances = window.dropdownInstances || [];
+
+
+safeDropdownInit('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');
+safeDropdownInit('destination-dropdown-btn', 'destination-dropdown-menu', 'destination-dropdown-text', 'Select Destination');
+
 
 
 
