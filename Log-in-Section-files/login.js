@@ -93,7 +93,7 @@ window.CheckValidationsForLogin = function () {
 
 };
 
-// Make sure this is exposed to global scope:
+
 window.CheckForgetValidation = function () {
     const emailRegex = /^[\w.-]+@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/;
     const GetforgetValue = forgetEmail.value.trim();
@@ -119,7 +119,6 @@ window.CheckForgetValidation = function () {
                 forgetEmail.value = ""; 
             })
             .catch((error) => {
-                // Firebase error handling
                 if (error.code === 'auth/user-not-found') {
                     errorDiv.innerText = 'No account found with this email.';
                 } else if (error.code === 'auth/invalid-email') {
@@ -131,7 +130,6 @@ window.CheckForgetValidation = function () {
     }
 };
 
-// Clear error on typing again
 forgetEmail.addEventListener('input', () => {
     document.querySelector('.invalid-forget-email').innerText = '';
 });
