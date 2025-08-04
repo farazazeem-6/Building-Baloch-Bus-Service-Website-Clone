@@ -143,8 +143,6 @@ if (document.readyState === 'loading') {
     new DualRangeSlider();
 }
 
-
-
 // JS 
 
 const modifySearchBtn = document.querySelector('.right-booking-heading a');
@@ -311,10 +309,6 @@ seats.forEach(seat => {
             selectedSeat = seat;
             currentSelectedSeat = seatText;
             genderModal.style.display = 'block';
-            // console.log('Geneder modal');
-            // console.log('genderModal:', genderModal);
-            // console.log("Clicked seat:", seat.innerText.trim());
-
             document.body.style.overflow = 'hidden';
         } else if (bg === 'rgb(0, 128, 0)') {
             seat.style.backgroundColor = 'white';
@@ -367,8 +361,6 @@ closeGenderModal.addEventListener('click', () => {
 
 
 
-
-
 const Modalpage1 = document.querySelector('.modal-seats-div');
 const Modalpage2 = document.querySelector('.select-terminal-container');
 const ModalBtn1 = document.querySelector('#select-seat-btn');
@@ -408,7 +400,7 @@ function showPage2() {
 
     ModalNextBtn.innerText = 'Check Out';
 
-    updateNextButtonState(); // Now handles both pages
+    updateNextButtonState(); 
 }
 
 
@@ -492,5 +484,3 @@ function updateNextButtonState() {
 document.addEventListener('DOMContentLoaded', function () {
     showPage1();
 });
-
-

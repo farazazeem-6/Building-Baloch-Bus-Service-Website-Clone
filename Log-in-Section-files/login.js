@@ -12,7 +12,7 @@ const forgetModal1 = document.getElementById('forget-modal-1');
 const forgetEmail = document.getElementById('forget-email');
 const closeIcon1 = document.querySelector('.cross-img-1 img');
 const SubmitBtn = document.getElementsByClassName('send-email-btn');
-const ForgetBtn = document.querySelector('.forgot-password')
+const ForgetBtn = document.querySelector('.forgot-password');
 
 closeIcon1.addEventListener('click', () => {
     forgetModal1.style.display = 'none';

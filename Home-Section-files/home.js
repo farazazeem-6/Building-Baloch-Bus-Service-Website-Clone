@@ -334,9 +334,6 @@ const destinationDropdown = new CustomDropdown('destination-dropdown-btn', 'dest
 window.dropdownInstances.push(originDropdown, destinationDropdown);
 
 
-
-
-
 // custom dropdown for profile :
 
 document.addEventListener('DOMContentLoaded', function () {
