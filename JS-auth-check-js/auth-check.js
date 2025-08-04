@@ -49,3 +49,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+export { auth, db };

@@ -57,7 +57,7 @@
         </div>
         <div class="nav-buttons">
             <ul>
-                <li><a href="/Home-Section-files/index.html" class="active"><i class="fa-solid fa-house-chimney"></i>
+                <li><a href="/Home-Section-files/index.html" ><i class="fa-solid fa-house-chimney"></i>
                         <span>Home</span></a>
                 </li>
                 <li><a href="/About-Section-files/about.html"><i class="fa-solid fa-users"></i> <span>About
@@ -73,7 +73,7 @@
 
 
                 <div class="custom-dropdown">
-                    <button class="custom-dropdown-toggle" id="customDropdownBtn">
+                    <button class="custom-dropdown-toggle" id="customDropdownBtn" style="color: #008000;">
                         <span><i class="fa-solid fa-user"></i></span> Faraz Azeem ▾
                     </button>
                     <ul class="custom-dropdown-menu" id="customDropdownMenu">
@@ -122,18 +122,36 @@
                             MY TICKETS
                         </a>
                         <hr>
-                        <a href="/Wallet-Section-files/wallet.html" style="padding-bottom: 10px; color: #008000; border-left: 4px solid #008000;">
+                        <a href="/Wallet-Section-files/wallet.html"
+                            style="padding-bottom: 10px; color: #008000; border-left: 4px solid #008000;">
                             MY WALLET
                         </a>
                     </nav>
                 </div>
             </div>
 
-
             <div class="col-lg-9 profile-right">
                 <div class="profile-right-head">
-                    <h4>Current Balance</h4>
+                    <div class="left-btns">
+                        <h4 style="font-size: 16px;">Current Balance</h4>
+                    </div>
+
+                    <div class="right-btns">
+                        <button>Balance</button>
+                        <a href="#" onclick="return false">Add Balance</a>
+                        <a href="#" onclick="return false">History</a>
+                    </div>
+                   
                 </div>
+                <hr>
+                <div class="circle-container">
+                    <div class="circle">
+                        <p style="color: #212529; font-size: 50px;">0</p>
+                        <p style="color: #212529; font-size: 14px ;">Rupees</p>
+                    </div>
+                    <p>Total Available Funds</p>
+                </div>
+
             </div>
         </div>
     </div>

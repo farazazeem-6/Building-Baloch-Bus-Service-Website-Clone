@@ -12,3 +12,44 @@
     --color-black: #434343;
     --header-color: #f8f9fa;
 }
+
+.profile-right-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.right-btns button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008000;
+    color: white;
+}
+
+.right-btns a {
+    text-decoration: none;
+}
+.circle-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.circle {
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    border: 4px solid #008000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

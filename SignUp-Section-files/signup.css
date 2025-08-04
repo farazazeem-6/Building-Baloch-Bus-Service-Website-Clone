@@ -6,7 +6,18 @@
     --header-color: #f8f9fa;
 }
 
-.gender-error {
+.gender-error,
+.street-name-error,
+.city-name-error,
+.state-error,
+.zip-code-error,
+.first-name-error,
+.last-name-error,
+.email-error,
+.phone-no-error,
+.cnic-error,
+.confirm-password-error,
+.password-error2 {
     font-size: 13px;
     color: red;
     font-weight: 500;
