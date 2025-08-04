@@ -325,7 +325,6 @@ class CustomDropdown {
 
 }
 
-// Initialize dropdowns and store instances globally
 window.dropdownInstances = [];
 
 const originDropdown = new CustomDropdown('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');

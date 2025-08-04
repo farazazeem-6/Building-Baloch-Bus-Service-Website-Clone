@@ -480,7 +480,6 @@ function updateNextButtonState() {
 
     }
 }
-
 document.addEventListener('DOMContentLoaded', function () {
     showPage1();
 });

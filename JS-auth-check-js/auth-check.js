@@ -22,6 +22,14 @@ onAuthStateChanged(auth, async (user) => {
             const userData = userDoc.data();
             document.getElementById("customDropdownBtn").innerHTML =
                 `<span><i class="fa-solid fa-user"></i></span> ${userData.firstName} ${userData.lastName} ▾`;
+
+            localStorage.setItem('first-name', userData.firstName);
+            localStorage.setItem('last-name', userData.lastName);
+            localStorage.setItem('email', userData.email);
+            localStorage.setItem('phone', userData.phone);
+            localStorage.setItem('cnic', userData.cnic);
+            localStorage.setItem('gender', userData.gender);
+
         }
     } else {
         dropdown.style.display = "none";
@@ -31,7 +39,7 @@ onAuthStateChanged(auth, async (user) => {
 
 // Logout button functionality
 document.addEventListener("DOMContentLoaded", () => {
-    const logoutBtn = document.querySelector('.custom-dropdown-menu li:last-child a');
+    const logoutBtn = document.querySelector('#log-out');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
             signOut(auth).then(() => {
