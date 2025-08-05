@@ -1,8 +1,6 @@
-
-import { app } from "/JS-firebase-config-js/JSfirebase-config.js"; // Adjust path as needed if using modular Firebase
+import { app } from "/JS-firebase-config-js/JSfirebase-config.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
 
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -17,27 +15,56 @@ onAuthStateChanged(auth, async (user) => {
         dropdown.style.display = "block";
         loginSignupBtn.style.display = "none";
 
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-        if (userDoc.exists()) {
-            const userData = userDoc.data();
+        try {
+            const userDocRef = doc(db, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+
+            let firstName = "";
+            let lastName = "";
+            let email = user.email || "";
+            let phone = "";
+            let cnic = "";
+            let gender = "";
+
+            if (userDoc.exists()) {
+                // User signed up via form — fetch full details from Firestore
+                const userData = userDoc.data();
+                firstName = userData.firstName;
+                lastName = userData.lastName;
+                email = userData.email;
+                phone = userData.phone;
+                cnic = userData.cnic;
+                gender = userData.gender;
+            } else {
+                // Social login fallback (Google, GitHub, Facebook)
+                const displayName = user.displayName || "User";
+                const nameParts = displayName.split(" ");
+                firstName = nameParts[0];
+                lastName = nameParts[1] || "";
+            }
+
+            // Store data in localStorage for later use
+            localStorage.setItem("first-name", firstName);
+            localStorage.setItem("last-name", lastName);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
+            localStorage.setItem("cnic", cnic);
+            localStorage.setItem("gender", gender);
+
             document.getElementById("customDropdownBtn").innerHTML =
-                `<span><i class="fa-solid fa-user"></i></span> ${userData.firstName} ${userData.lastName} ▾`;
+                `<span><i class="fa-solid fa-user"></i></span> ${firstName} ${lastName} ▾`;
 
-            localStorage.setItem('first-name', userData.firstName);
-            localStorage.setItem('last-name', userData.lastName);
-            localStorage.setItem('email', userData.email);
-            localStorage.setItem('phone', userData.phone);
-            localStorage.setItem('cnic', userData.cnic);
-            localStorage.setItem('gender', userData.gender);
-
+        } catch (error) {
+            console.error("Error fetching user data:", error);
         }
+
     } else {
         dropdown.style.display = "none";
         loginSignupBtn.style.display = "block";
     }
 });
 
-// Logout button functionality
+// Logout
 document.addEventListener("DOMContentLoaded", () => {
     const logoutBtn = document.querySelector('#log-out');
     if (logoutBtn) {
@@ -49,4 +76,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 export { auth, db };

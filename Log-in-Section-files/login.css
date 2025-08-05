@@ -100,9 +100,6 @@ body.modal-open {
     font-family: var(--main-font);
 }
 
-
-
-
 .remember-section {
     display: flex;
     justify-content: flex-end;
@@ -213,13 +210,11 @@ body.modal-open {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
-    /* display: flex; */
     justify-content: center;
     align-items: center;
     z-index: 9999;
 
 }
-
 
 
 .modal-data {
@@ -375,7 +370,6 @@ input:-webkit-autofill:active {
     transform: scale(1.1);
 }
 
-/* Individual icon styling */
 .google-icon {
     background: url('/images/Google-icon.png');
     background-size: contain;

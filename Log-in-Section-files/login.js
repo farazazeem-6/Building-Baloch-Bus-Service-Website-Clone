@@ -37,7 +37,8 @@ import {
     sendPasswordResetEmail,
     signInWithPopup,
     GoogleAuthProvider,
-    FacebookAuthProvider
+    FacebookAuthProvider,
+    GithubAuthProvider
 
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
@@ -45,6 +46,8 @@ import {
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const fbProvider = new FacebookAuthProvider();
+const Gitprovider = new GithubAuthProvider();
+
 
 window.CheckValidationsForLogin = function () {
     const email = document.getElementById("username").value;
@@ -144,10 +147,18 @@ window.loginWithGoogle = function () {
     signInWithPopup(auth, provider)
         .then((result) => {
             const user = result.user;
-            console.log("Google login triggered");
             console.log("Google login successful:", user);
+
+            // ✅ Save user info in localStorage
+            localStorage.setItem("user", JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+                uid: user.uid
+            }));
+
             alert("Welcome, " + user.displayName);
-            window.location.href = "/Home-Section-files/index.html"; // redirect after login
+            window.location.href = "/Home-Section-files/index.html";
         })
         .catch((error) => {
             console.error("Google login failed:", error);
@@ -155,32 +166,57 @@ window.loginWithGoogle = function () {
         });
 };
 
+
 // Log in with FaceBook:
 
 
 window.loginWithFacebook = function () {
-  console.log("Triggering Facebook login");
-  signInWithPopup(auth, fbProvider)
-    .then((result) => {
-      const user = result.user;
-      console.log(" Facebook login successful:", user);
-      alert(`Welcome, ${user.displayName}`);
-      // Optional: store user info
-      localStorage.setItem("user", JSON.stringify({
-        name: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-        uid: user.uid
-      }));
-    })
-    .catch((error) => {
-      console.error("Facebook login failed:", error);
-      alert(`Login failed: ${error.message}`);
-    });
+    console.log("Triggering Facebook login");
+    signInWithPopup(auth, fbProvider)
+        .then((result) => {
+            const user = result.user;
+            console.log(" Facebook login successful:", user);
+            alert(`Welcome, ${user.displayName}`);
+            window.location.href = "/Home-Section-files/index.html";
+
+            // Optional: store user info
+            localStorage.setItem("user", JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+                uid: user.uid
+            }));
+        })
+        .catch((error) => {
+            console.error("Facebook login failed:", error);
+            alert(`Login failed: ${error.message}`);
+        });
 };
 
+// Loggin in with GitHub:
 
+document.getElementById("github-login").addEventListener("click", () => {
+    signInWithPopup(auth, Gitprovider)
+        .then((result) => {
+            const user = result.user;
+            console.log("GitHub login successful:", user);
 
+            // ✅ Save user info in localStorage
+            localStorage.setItem("user", JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+                uid: user.uid
+            }));
+
+            alert("Login successful! Welcome " + user.displayName);
+            window.location.href = "/Home-Section-files/index.html";
+        })
+        .catch((error) => {
+            console.error("GitHub login failed:", error);
+            alert("Login failed: " + error.message);
+        });
+});
 forgetEmail.addEventListener('input', () => {
     document.querySelector('.invalid-forget-email').innerText = '';
 });
