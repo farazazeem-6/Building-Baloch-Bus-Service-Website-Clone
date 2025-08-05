@@ -19,17 +19,11 @@ function CheckValidtionsOfContactForm() {
     document.querySelector('.phone-num-error').innerText = '';
     document.querySelector('.message-error').innerText = '';
 
-
     const nameRegex = /^[A-Za-z\s]+$/;
-    const numberRegex = /^\d+$/;
-    const alphaNumericOnly = /^[A-Za-z0-9]+$/;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const subjectRegex = /^[A-Za-z0-9 ,.'"-]{3,100}$/;
     const pkPhoneRegex = /^03\d{9}$/;
     const messageRegex = /^[A-Za-z0-9 @#&(),.?!'"%\-_\n]{5,1000}$/;
-
-
-
 
     if (GetName === "") {
         document.querySelector('.contact-name-error').innerText = 'Name required';
@@ -45,71 +39,80 @@ function CheckValidtionsOfContactForm() {
         isValidContactsInput = false;
     }
 
-
-
-
     if (GetEmail === "") {
         document.querySelector('.email-error').innerText = 'Email required';
         isValidContactsInput = false;
-
-    }
-    if (!emailRegex.test(GetEmail)) {
+    } else if (!emailRegex.test(GetEmail)) {
         document.querySelector('.email-error').innerText = 'Invalid email';
         isValidContactsInput = false;
     }
 
-
     if (GetSubject === "") {
         document.querySelector('.subject-error').innerText = 'Subject required';
         isValidContactsInput = false;
-    }
-    if (!subjectRegex.test(GetSubject)) {
-        document.querySelector('.subject-error').innerText = 'Invalid subject(only characters)';
+    } else if (!subjectRegex.test(GetSubject)) {
+        document.querySelector('.subject-error').innerText = 'Invalid subject';
         isValidContactsInput = false;
     }
 
     if (GetPhoneNumber === "") {
         document.querySelector('.phone-num-error').innerText = 'Phone number required';
         isValidContactsInput = false;
-    }
-
-    if (!pkPhoneRegex.test(GetPhoneNumber)) {
+    } else if (!pkPhoneRegex.test(GetPhoneNumber)) {
         document.querySelector('.phone-num-error').innerText = 'Invalid number';
         isValidContactsInput = false;
     }
 
-
     if (GetMessage === "") {
         document.querySelector('.message-error').innerText = 'Message required';
         isValidContactsInput = false;
-    }
-    if (!messageRegex.test(GetMessage)) {
+    } else if (!messageRegex.test(GetMessage)) {
         document.querySelector('.message-error').innerText = 'Only text allowed. Minimum 5 characters';
         isValidContactsInput = false;
     }
 
+    return isValidContactsInput;
+}
 
-    if (isValidContactsInput) {
-        // document.querySelector('.message-error').innerText = ' ✅ Message Sent!';
-        alert('Message Sent!')
-        document.getElementById('contactForm').reset();
-        document.getElementById('messageForm').reset();
-      
+document.getElementsByClassName("send-msg-btn")[0].addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (CheckValidtionsOfContactForm()) {
+        const contactForm = document.getElementById("contactForm");
+        const messageForm = document.getElementById("messageForm");
+
+        const combinedForm = new FormData();
+
+        [...contactForm.elements].forEach(el => {
+            if (el.name) combinedForm.append(el.name, el.value);
+        });
+        [...messageForm.elements].forEach(el => {
+            if (el.name) combinedForm.append(el.name, el.value);
+        });
+
+        const data = {
+            name: Name.value.trim(),
+            email: Email.value.trim(),
+            subject: Subject.value.trim(),
+            phone: PhoneNumber.value.trim(),
+            message: Message.value.trim()
+        };
+
+        emailjs.send('service_hi1re2n', 'template_4l20rkn', data)
+            .then(function (response) {
+                alert("Message sent successfully!");
+                contactForm.reset();
+                messageForm.reset();
+            }, function (error) {
+                alert("Failed to send message. Please try again.");
+                console.error("EmailJS error:", error);
+            });
 
     }
-}
-Name.addEventListener('input', () => {
-    document.querySelector('.contact-name-error').innerText = '';
 });
-Email.addEventListener('input', () => {
-    document.querySelector('.email-error').innerText = '';
-});
-Subject.addEventListener('input', () => {
-    document.querySelector('.subject-error').innerText = '';
-});
-PhoneNumber.addEventListener('input', () => {
-    document.querySelector('.phone-num-error').innerText = '';
-});
-Message.addEventListener('input', () => {
-    document.querySelector('.message-error').innerText = '';
-});
+
+Name.addEventListener('input', () => document.querySelector('.contact-name-error').innerText = '');
+Email.addEventListener('input', () => document.querySelector('.email-error').innerText = '');
+Subject.addEventListener('input', () => document.querySelector('.subject-error').innerText = '');
+PhoneNumber.addEventListener('input', () => document.querySelector('.phone-num-error').innerText = '');
+Message.addEventListener('input', () => document.querySelector('.message-error').innerText = '');

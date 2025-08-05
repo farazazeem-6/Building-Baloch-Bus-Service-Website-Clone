@@ -116,12 +116,12 @@
                     <div class="form-row contact-form-inputs">
                         <div class="col-md-6 mb-3">
                             <label for="name">Your Name</label>
-                            <input type="text" class="form-control" placeholder="First name" id="name">
+                            <input type="text" class="form-control" placeholder="First name" id="name" name="name">
                             <div class="contact-name-error"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email">Your Email</label>
-                            <input type="text" class="form-control" placeholder="Last name" id="email">
+                            <input type="text" class="form-control" placeholder="Last name" id="email" name="email">
                             <div class="email-error"></div>
                         </div>
                     </div>
@@ -129,12 +129,13 @@
                     <div class="form-row contact-form-inputs">
                         <div class="col-md-6 mb-3">
                             <label for="subject">Subject</label>
-                            <input type="text" class="form-control" placeholder="Subject" id="subject">
+                            <input type="text" class="form-control" placeholder="Subject" id="subject" name="subject">
                             <div class="subject-error"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control" placeholder="Phone Number" id="phonenumber">
+                            <input type="text" class="form-control" placeholder="Phone Number" id="phonenumber"
+                                name="phone">
                             <div class="phone-num-error"></div>
                         </div>
                     </div>
@@ -143,7 +144,7 @@
                     <div class="form-row contact-form-inputs message-form-input">
                         <div class="col-12 mb-3">
                             <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Your message ..."
+                            <textarea name="message" id="message" class="form-control" placeholder="Your message ..."
                                 rows="5"></textarea>
                             <div class="message-error"></div>
                         </div>
@@ -263,6 +264,14 @@
         </div>
     </div>
 
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init('jnwXsPB_umqpi1SeY'); // Replace with your actual User ID
+        })();
+    </script>
 
 
     <script type="module" src="/JS-firebase-config-js/JSfirebase-config.js"></script>
