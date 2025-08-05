@@ -94,6 +94,24 @@
                 <p class="create-acc-text">Don't have an account?<span><a href="/SignUp-Section-files/signup.html"
                             style="color: #28a745; padding-left: 10px; text-decoration: underline;">Register</a></span>
                 </p>
+
+
+                <nav class="navbar">
+                    <a href="#" onclick="loginWithGoogle()" class="nav-item" id="google-btn" data-tooltip="Google" style="--delay: 1">
+                        <div class="icon google-icon"></div>
+                    </a>
+
+                    <a href="#" onclick="loginWithFacebook()" class="nav-item" data-tooltip="Facebook" style="--delay: 2">
+                        <div class="icon facebook-icon"></div>
+                    </a>
+
+                    <a href="#" class="nav-item" data-tooltip="GitHub" style="--delay: 3">
+                        <div class="icon github-icon"></div>
+                    </a>
+
+                </nav>
+
+                
                 <form action="" id="form-1">
                     <label for="username">Email</label> <br>
                     <input type="text" name="username" id="username" placeholder="Enter email">

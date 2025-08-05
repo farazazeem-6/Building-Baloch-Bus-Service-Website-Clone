@@ -237,7 +237,6 @@ class CustomDropdown {
       e.stopPropagation();
     });
 
-
     window.addEventListener('resize', () => {
       if (this.isOpen) {
         this.updatePosition();
@@ -261,7 +260,6 @@ class CustomDropdown {
     this.updatePosition();
     this.menu.classList.add('show');
 
-
     const firstOption = this.menu.querySelector('.selection-dropdown-option');
     if (firstOption) {
       firstOption.focus();
@@ -276,7 +274,6 @@ class CustomDropdown {
   }
 
   closeOtherDropdowns() {
-
     if (window.dropdownInstances) {
       window.dropdownInstances.forEach(instance => {
         if (instance !== this && instance.isOpen) {
@@ -321,16 +318,25 @@ class CustomDropdown {
       this.selectOption(option);
     }
   }
-
-
 }
 
-window.dropdownInstances = [];
+// Initialize dropdownInstances array
+window.dropdownInstances = window.dropdownInstances || [];
 
-const originDropdown = new CustomDropdown('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');
-const destinationDropdown = new CustomDropdown('destination-dropdown-btn', 'destination-dropdown-menu', 'destination-dropdown-text', 'Select Destination');
+// Only create dropdown instances if the elements exist in the DOM
+if (document.getElementById('origin-dropdown-btn') && 
+    document.getElementById('origin-dropdown-menu') && 
+    document.getElementById('origin-dropdown-text')) {
+  const originDropdown = new CustomDropdown('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');
+  window.dropdownInstances.push(originDropdown);
+}
 
-window.dropdownInstances.push(originDropdown, destinationDropdown);
+if (document.getElementById('destination-dropdown-btn') && 
+    document.getElementById('destination-dropdown-menu') && 
+    document.getElementById('destination-dropdown-text')) {
+  const destinationDropdown = new CustomDropdown('destination-dropdown-btn', 'destination-dropdown-menu', 'destination-dropdown-text', 'Select Destination');
+  window.dropdownInstances.push(destinationDropdown);
+}
 
 
 // custom dropdown for profile :

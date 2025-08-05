@@ -13,6 +13,7 @@ const forgetEmail = document.getElementById('forget-email');
 const closeIcon1 = document.querySelector('.cross-img-1 img');
 const SubmitBtn = document.getElementsByClassName('send-email-btn');
 const ForgetBtn = document.querySelector('.forgot-password');
+const googleBtn = document.querySelector('#google-btn');
 
 closeIcon1.addEventListener('click', () => {
     forgetModal1.style.display = 'none';
@@ -33,11 +34,17 @@ import { app } from "/JS-firebase-config-js/JSfirebase-config.js"
 import {
     getAuth,
     signInWithEmailAndPassword,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    signInWithPopup,
+    GoogleAuthProvider,
+    FacebookAuthProvider
+
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const fbProvider = new FacebookAuthProvider();
 
 window.CheckValidationsForLogin = function () {
     const email = document.getElementById("username").value;
@@ -116,7 +123,7 @@ window.CheckForgetValidation = function () {
                 alert('Verification link sent!');
                 forgetModal1.style.display = 'none';
                 document.body.classList.remove('modal-open');
-                forgetEmail.value = ""; 
+                forgetEmail.value = "";
             })
             .catch((error) => {
                 if (error.code === 'auth/user-not-found') {
@@ -129,6 +136,50 @@ window.CheckForgetValidation = function () {
             });
     }
 };
+
+
+// Login With Google JS:
+
+window.loginWithGoogle = function () {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            console.log("Google login triggered");
+            console.log("Google login successful:", user);
+            alert("Welcome, " + user.displayName);
+            window.location.href = "/Home-Section-files/index.html"; // redirect after login
+        })
+        .catch((error) => {
+            console.error("Google login failed:", error);
+            alert("Login failed: " + error.message);
+        });
+};
+
+// Log in with FaceBook:
+
+
+window.loginWithFacebook = function () {
+  console.log("Triggering Facebook login");
+  signInWithPopup(auth, fbProvider)
+    .then((result) => {
+      const user = result.user;
+      console.log(" Facebook login successful:", user);
+      alert(`Welcome, ${user.displayName}`);
+      // Optional: store user info
+      localStorage.setItem("user", JSON.stringify({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+        uid: user.uid
+      }));
+    })
+    .catch((error) => {
+      console.error("Facebook login failed:", error);
+      alert(`Login failed: ${error.message}`);
+    });
+};
+
+
 
 forgetEmail.addEventListener('input', () => {
     document.querySelector('.invalid-forget-email').innerText = '';
