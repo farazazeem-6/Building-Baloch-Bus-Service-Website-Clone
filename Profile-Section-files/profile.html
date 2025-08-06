@@ -138,12 +138,12 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="first-name">First Name</label>
-                                <input type="text" class="form-control" placeholder="" id="first-name">
+                                <input type="text" class="form-control" placeholder="" id="first-name" readonly>
                                 <div class="first-name-error"></div>
                             </div>
                             <div class="col-lg-6">
                                 <label for="last-name">Last Name</label>
-                                <input type="text" class="form-control" placeholder="" id="last-name">
+                                <input type="text" class="form-control" placeholder="" id="last-name" readonly>
                                 <div class="last-name-error"></div>
                             </div>
                         </div>
@@ -154,12 +154,12 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" placeholder="" id="email">
+                                <input type="text" class="form-control" placeholder="" id="email" readonly>
                                 <div class="email-error"></div>
                             </div>
                             <div class="col-lg-6">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" placeholder="" id="phone">
+                                <input type="text" maxlength="12" class="form-control" placeholder="0312-3456789" id="phone" readonly>
                                 <div class="phone-no-error"></div>
                             </div>
                         </div>
@@ -170,12 +170,12 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="cnic">CNIC</label>
-                                <input type="text" class="form-control" placeholder="" id="cnic">
+                                <input type="text" maxlength="15" class="form-control" placeholder="12345-6789000-0" id="cnic" readonly>
                                 <div class="cnic-error"></div>
                             </div>
                             <div class="col-lg-6">
                                 <label for="">Gender</label> <br>
-                                <select name="" id="Gender">
+                                <select name="" id="Gender" readonly>
                                     <option value="" disabled selected>Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -187,7 +187,7 @@
                     </form>
 
 
-                    <form id="form-no-4">
+                    <!-- <form id="form-no-4">
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="password">New Password</label>
@@ -200,10 +200,10 @@
                                 <div class="confirm-password-error"></div>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
 
-                    <h4 style="padding-left: 20px; padding-top: 30px;">Address</h4>
+                    <!-- <h4 style="padding-left: 20px; padding-top: 30px;">Address</h4>
                     <hr>
 
                     <form id="form-no-1">
@@ -240,7 +240,7 @@
 
                     <div id="update-btn">
                         <button class="Update-Btn">Update Profile</button>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -254,7 +254,7 @@
     <script type="module" src="/JS-auth-check-js/auth-check.js"></script>
 
     <script src="/Home-Section-files/home.js"></script>
-    <script type="module" src="/Profile-Section-files/profile.js"></script>
+    <script src="/Profile-Section-files/profile.js"></script>
 </body>
 
 </html>

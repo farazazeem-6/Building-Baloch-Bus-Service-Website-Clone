@@ -14,6 +14,21 @@ const closeIcon1 = document.querySelector('.cross-img-1 img');
 const SubmitBtn = document.getElementsByClassName('send-email-btn');
 const ForgetBtn = document.querySelector('.forgot-password');
 const googleBtn = document.querySelector('#google-btn');
+const phoneBtn = document.querySelector('#phone-login');
+const phoneDiv = document.querySelector('.phoneModal-overlay');
+const closeIcon2 = document.querySelector('.close-phonebtn');
+
+phoneBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    phoneDiv.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+
+});
+closeIcon2.addEventListener('click', () => {
+    phoneDiv.style.display = 'none';
+    document.body.style.overflow = 'auto';
+})
 
 closeIcon1.addEventListener('click', () => {
     forgetModal1.style.display = 'none';
@@ -148,7 +163,6 @@ window.loginWithGoogle = function () {
         .then((result) => {
             const user = result.user;
             // console.log("Google login successful:", user);
-
             // Save user info in localStorage
             localStorage.setItem("user", JSON.stringify({
                 name: user.displayName,
@@ -162,8 +176,8 @@ window.loginWithGoogle = function () {
         })
         .catch((error) => {
             // console.error("Google login failed:", error);
-            document.querySelector('.username-error').innerText = 'Google login failed:';
-            // alert("Login failed: " + error.message);
+            // document.querySelector('.username-error').innerText = 'Google login failed:';
+            alert("Login failed: " + error.message);
         });
 };
 
@@ -176,7 +190,7 @@ window.loginWithFacebook = function () {
     signInWithPopup(auth, fbProvider)
         .then((result) => {
             const user = result.user;
-            // console.log(" Facebook login successful:", user);
+            console.log(" Facebook login successful:", user);
             // alert(`Welcome, ${user.displayName}`);
             window.location.href = "/Home-Section-files/index.html";
 
@@ -189,21 +203,21 @@ window.loginWithFacebook = function () {
             }));
         })
         .catch((error) => {
-            // console.error("Facebook login failed:", error);
-            document.querySelector('.username-error').innerText = 'Facebook login failed:';
-            // alert(`Login failed: ${error.message}`);
+            console.error("Facebook login failed:", error);
+            // document.querySelector('.username-error').innerText = 'Facebook login failed:';
+            alert(`Login failed: ${error.message}`);
         });
 };
 
-// Loggin in with GitHub:
+// Login in with GitHub:
 
 document.getElementById("github-login").addEventListener("click", () => {
     signInWithPopup(auth, Gitprovider)
         .then((result) => {
             const user = result.user;
-            // console.log("GitHub login successful:", user);
+            console.log("GitHub login successful:", user);
 
-            // ✅ Save user info in localStorage
+            // Save user info in localStorage
             localStorage.setItem("user", JSON.stringify({
                 name: user.displayName,
                 email: user.email,
@@ -215,9 +229,9 @@ document.getElementById("github-login").addEventListener("click", () => {
             window.location.href = "/Home-Section-files/index.html";
         })
         .catch((error) => {
-            // console.error("GitHub login failed:", error);
-            document.querySelector('.username-error').innerText = 'Github login failed:';
-            // alert("Login failed: " + error.message);
+            console.error("GitHub login failed:", error);
+            // document.querySelector('.username-error').innerText = 'Github login failed:';
+            alert("Login failed: " + error.message);
         });
 });
 forgetEmail.addEventListener('input', () => {

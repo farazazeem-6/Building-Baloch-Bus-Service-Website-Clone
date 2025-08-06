@@ -347,7 +347,6 @@ input:-webkit-autofill:active {
 
 .nav-item:hover {
     transform: translateY(-1px);
-    /* background: rgba(255, 255, 255, 0.2); */
     border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -385,7 +384,107 @@ input:-webkit-autofill:active {
     background-size: contain;
 }
 
+.phone-icon {
+    background: url('/images//phone-call.png') no-repeat center;
+    background-size: contain;
 
+}
+
+/* Phone Modal CSS  */
+
+
+.login-phone-error,
+.otp-error {
+    font-size: 14px;
+    color: red;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-family: var(--main-font);
+}
+
+.phoneModal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+    font-family: var(--main-font);
+}
+
+.phoneModal {
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    position: relative;
+
+}
+
+.phoneModal .close-phonebtn img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phoneModal h2 {
+    margin-bottom: 20px;
+    color: #212529;
+    text-align: center;
+}
+
+.phoneModal .form-group {
+    margin-bottom: 15px;
+}
+
+.phoneModal label {
+    display: block;
+    margin-bottom: 5px;
+    color: #212529;
+    font-weight: 500;
+}
+
+.phoneModal input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.phoneModal input:focus {
+    outline: none;
+
+    border: 2px solid #008000;
+}
+
+.phoneModal .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #008000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
 @media(max-width:1100px) {
     #login-details {

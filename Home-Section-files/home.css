@@ -9,6 +9,7 @@ body.no-scroll {
     overflow: hidden;
 }
 
+
 :root {
     --color-green: rgb(0, 128, 0);
     --color-lite-green: #28a745;

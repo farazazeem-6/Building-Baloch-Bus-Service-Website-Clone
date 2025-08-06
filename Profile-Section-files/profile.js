@@ -1,143 +1,151 @@
-import { auth, db } from "/JS-auth-check-js/auth-check.js";
-import {
-    updateEmail,
-    updatePassword,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import {
-    doc,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+// import { auth, db } from "/JS-auth-check-js/auth-check.js";
+// import {
+//     updateEmail,
+//     updatePassword,
+//     onAuthStateChanged
+// } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+// import {
+//     doc,
+//     updateDoc
+// } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-const updateBtn = document.querySelector(".Update-Btn");
 
-updateBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
+// document.addEventListener("DOMContentLoaded", function () {
+//     const cnicInput = document.getElementById("cnic");
+//     cnicInput.addEventListener("input", function (e) {
+//         let value = e.target.value.replace(/[^0-9]/g, "");
 
-   
-    const firstName = document.getElementById("first-name").value.trim();
-    const lastName = document.getElementById("last-name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const cnic = document.getElementById("cnic").value.trim();
-    const gender = document.getElementById("Gender").value;
-    const password = document.getElementById("password").value.trim();
-    const confirmPassword = document.getElementById("confirm-password").value.trim();
-    const street = document.getElementById("street-no").value.trim();
-    const city = document.getElementById("city-name").value.trim();
-    const state = document.getElementById("state").value.trim();
-    const zipCode = document.getElementById("zip-code").value.trim();
+//         if (value.length > 5 && value.length <= 12) {
+//             value = value.slice(0, 5) + "-" + value.slice(5);
+//         } else if (value.length > 12) {
+//             value = value.slice(0, 5) + "-" + value.slice(5, 12) + "-" + value.slice(12, 13);
+//         }
 
-    let isValid = true;
+//         e.target.value = value;
+//     });
+// });
 
-    if (firstName.length < 3 || firstName.length > 20) {
-        document.querySelector('.first-name-error').innerText = 'A valid name required';
+// document.addEventListener('DOMContentLoaded', function () {
+//     const phoneInput = document.getElementById('phone');
+//     phoneInput.addEventListener('input', function (e) {
+//         let value = e.target.value.replace(/[^0-9]/g, ""); // Only digits
 
-        isValid = false;
-    }
+//         if (value.length > 4) {
+//             value = value.slice(0, 4) + "-" + value.slice(4, 11);
+//         }
 
-    if (lastName.length < 3 || lastName.length > 20) {
-        document.querySelector('.last-name-error').innerText = 'A valid name required';
-        isValid = false;
-    }
+//         e.target.value = value;
+//     })
+// });
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        document.querySelector('.email-error').innerText = 'Invalid email';
-        isValid = false;
-    }
 
-    const phoneRegex = /^03\d{9}$/;
-    if (!phoneRegex.test(phone)) {
-        document.querySelector('.phone-no-error').innerText = 'Invalid phone number';
-        isValid = false;
-    }
+// const updateBtn = document.querySelector(".Update-Btn");
 
-    const cnicRegex = /^\d{13}$/;
-    if (!cnicRegex.test(cnic)) {
-        document.querySelector('.cnic-error').innerText = 'Invalid CNIC';
-        isValid = false;
-    }
+// const firstName = document.getElementById("first-name")
+// const lastName = document.getElementById("last-name")
+// const email = document.getElementById("email")
+// const phone = document.getElementById("phone")
+// const cnic = document.getElementById("cnic")
+// const gender = document.getElementById("Gender")
+// updateBtn.addEventListener("click", async (e) => {
+//     e.preventDefault();
 
-    if (gender === "") {
-        document.querySelector('.gender-error').innerText = 'Choose a Gender';
-        isValid = false;
-    }
 
-    if (password || confirmPassword) {
-        if (password !== confirmPassword) {
-            document.querySelector('.confirm-password-error').innerText = 'Confirm password should be same to Password';
-            isValid = false;
-        }
+//     const street = document.getElementById("street-no")
+//     const city = document.getElementById("city-name")
+//     const state = document.getElementById("state")
+//     const zipCode = document.getElementById("zip-code")
 
-        if (password.length < 6) {
-            document.querySelector('.password-error2').innerText = 'Too short (at least 8 char)';
-            isValid = false;
-        }
-    }
 
-    if (!street) {
-        document.querySelector('.street-name-error').innerText = 'Street required'
-        isValid = false;
-    }
-    if (!city) {
-        document.querySelector('.city-name-error').innerText = 'City required'
-        isValid = false;
-    }
-    if (!state) {
-        document.querySelector('.state-error').innerText = 'State required'
-        isValid = false;
-    }
-    if (!city) {
-        document.querySelector('.zip-code-error').innerText = 'Zip code required'
-        isValid = false;
-    }
+//     const firstNameValue = firstName.value.trim();
+//     const lastNameValue = lastName.value.trim();
+//     const emailValue = email.value.trim();
+//     const phoneValue = phone.value.trim();
+//     const cnicValue = cnic.value.trim();
+//     const genderValue = gender.value.trim();
 
-    if (!isValid) return;
+//     let isValid = true;
 
-    // Proceed to update if validation passed
-    onAuthStateChanged(auth, async (user) => {
-        if (!user) {
-            alert("User not logged in!");
-            return;
-        }
+//     if (firstNameValue.length < 3 || firstName.length > 20) {
+//         document.querySelector('.first-name-error').innerText = 'A valid name required';
 
-        const userRef = doc(db, "users", user.uid);
+//         isValid = false;
+//     }
 
-        try {
-            // Update email if changed
-            if (email !== user.email) {
-                await updateEmail(user, email);
-            }
+//     if (lastNameValue.length < 3 || lastName.length > 20) {
+//         document.querySelector('.last-name-error').innerText = 'A valid name required';
+//         isValid = false;
+//     }
 
-            // Update password if provided
-            if (password) {
-                await updatePassword(user, password);
-            }
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!emailRegex.test(emailValue)) {
+//         document.querySelector('.email-error').innerText = 'Invalid email';
+//         isValid = false;
+//     }
 
-            // Update Firestore document
-            await updateDoc(userRef, {
-                firstName,
-                lastName,
-                email,
-                phone,
-                cnic,
-                gender,
-                address: {
-                    street,
-                    city,
-                    state,
-                    zipCode,
-                }
-            });
+//     const phoneRegex = /^03\d{9}$/;
+//     if (phoneValue === '') {
+//         document.querySelector('.phone-no-error').innerText = 'Enter phone number';
+//         isValid = false;
+//     }
 
-            alert("Profile updated successfully!");
-        } catch (error) {
-            console.error("Error updating profile:", error);
-            alert("Error: " + error.message);
-        }
-    });
-});
+//     const cnicRegex = /^\d{13}$/;
+//     if (cnicValue === '') {
+//         document.querySelector('.cnic-error').innerText = 'CNIC required';
+//         isValid = false;
+//     }
+
+//     if (genderValue === "") {
+//         document.querySelector('.gender-error').innerText = 'Choose a Gender';
+//         isValid = false;
+//     }
+
+
+//     if (!isValid) return;
+
+//     // Proceed to update if validation passed
+//     // onAuthStateChanged(auth, async (user) => {
+//     //     if (!user) {
+//     //         alert("User not logged in!");
+//     //         return;
+//     //     }
+
+//     //     const userRef = doc(db, "users", user.uid);
+
+//     //     try {
+//     //         // Update email if changed
+//     //         if (email !== user.email) {
+//     //             await updateEmail(user, email);
+//     //         }
+
+//     //         // Update password if provided
+//     //         if (password) {
+//     //             await updatePassword(user, password);
+//     //         }
+
+//     //         // Update Firestore document
+//     //         await updateDoc(userRef, {
+//     //             firstName,
+//     //             lastName,
+//     //             email,
+//     //             phone,
+//     //             cnic,
+//     //             gender,
+//     //             address: {
+//     //                 street,
+//     //                 city,
+//     //                 state,
+//     //                 zipCode,
+//     //             }
+//     //         });
+
+//     //         alert("Profile updated successfully!");
+//     //     } catch (error) {
+//     //         console.error("Error updating profile:", error);
+//     //         alert("Error: " + error.message);
+//     //     }
+//     // });
+// });
 
 
 let headingName = document.getElementById('heading-name')
@@ -157,3 +165,22 @@ window.onload = function () {
     headingName.innerText = `${firstName1} ${lastName1}`
 };
 
+
+// firstName.addEventListener('click', function () {
+//     document.querySelector('.first-name-error').innerText = '';
+// });
+// lastName.addEventListener('click', function () {
+//     document.querySelector('.last-name-error').innerText = '';
+// });
+// email.addEventListener('click', function () {
+//     document.querySelector('.email-error').innerText = '';
+// });
+// phone.addEventListener('click', function () {
+//     document.querySelector('.phone-no-error').innerText = '';
+// });
+// cnic.addEventListener('click', function () {
+//     document.querySelector('.cnic-error').innerText = '';
+// });
+// gender.addEventListener('click', function () {
+//     document.querySelector('.gender-error').innerText = '';
+// });
