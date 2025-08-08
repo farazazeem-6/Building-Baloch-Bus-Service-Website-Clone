@@ -5,6 +5,8 @@ import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+
+
 onAuthStateChanged(auth, async (user) => {
     const dropdown = document.querySelector(".custom-dropdown");
     const loginSignupBtn = document.querySelector("#loginSignup-li");

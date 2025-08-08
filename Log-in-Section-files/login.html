@@ -110,36 +110,15 @@
                     <a href="#" id="github-login" class="nav-item" data-tooltip="GitHub" style="--delay: 3">
                         <div class="icon github-icon"></div>
                     </a>
-                    <a href="#" id="phone-login" class="nav-item" data-tooltip="GitHub" style="--delay: 3">
+                    <!-- <a href="#" id="phone-login" class="nav-item" data-tooltip="Phone" style="--delay: 3">
                         <div class="icon phone-icon"></div>
-                    </a>
+                    </a> -->
 
                 </nav>
 
+                <button class="emailmodalBtn">Continue with email</button>
+                <button class="phonemodalBtn">Continue with phone no</button>
 
-                <form action="" id="form-1">
-                    <label for="username">Email</label> <br>
-                    <input type="text" name="username" id="username" placeholder="Enter email">
-                    <div class="username-error"></div>
-                    <label for="password">Password</label> <br>
-                    <input type="password" name="password" id="password" placeholder="Password">
-                    <div class="password-error"></div>
-                </form>
-                <form action="" id="radio-form">
-                    <div class="remember-section">
-                        <div class="remember-me" style="display: none;">
-                            <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">Remember me</label>
-                        </div>
-
-                        <a href="#" class="forgot-password">
-                            <i class="fa-solid fa-lock"></i> Forgot password?
-                        </a>
-
-                    </div>
-
-                </form>
-                <button onclick="CheckValidationsForLogin()" class="log-in-btn">Log in</button>
             </div>
         </div>
     </div>
@@ -276,27 +255,72 @@
     <div class="phoneModal-overlay">
         <div class="phoneModal">
             <div class="close-phonebtn"><img src="/images/remove.png" alt=""></div>
-            <h2>Login with Phone</h2>
-            <form>
+            <h2>Phone Verification</h2>
+            <p style="padding-bottom: 20px;" class="ver-info">We'll send you a verification code</p>
+
+            <form class="form-phone-no">
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" maxlength="11"
+                        required>
                     <div class="login-phone-error"></div>
                 </div>
+                <div id="recaptcha-container"></div>
+                <button type="" class="send-otp-btn" id="phone-modal-btn">Send OTP</button>
+            </form>
 
+            <form class="form-otp">
                 <div class="form-group">
                     <label for="otp">OTP</label>
-                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
+                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" maxlength="6" required>
                     <div class="otp-error"></div>
                 </div>
 
-                <button type="submit" class="submit-btn">Submit</button>
+                <button type="" class="verify-otp-btn" id="phone-modal-btn">Verify OTP</button>
+                <button class="resend-button" id="resendBtn" onclick="resendCode()">
+                    <span id="resendText">Resend code</span>
+                </button>
+
             </form>
+
         </div>
     </div>
 
 
+    <div class="email-modal-overlay">
+        <div class="emailModal">
+            <div class="close-phonebtn" id="emailModalCrossBtn"><img src="/images/remove.png" alt=""></div>
+            <h4>Login with email</h4>
 
+            <form action="" id="form-1">
+                <label for="username">Email</label> <br>
+                <input type="text" name="username" id="username" placeholder="Enter email">
+                <div class="username-error"></div>
+                <label for="password">Password</label> <br>
+                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="password-error"></div>
+            </form>
+            <form action="" id="radio-form">
+                <div class="remember-section">
+                    <div class="remember-me" style="display: none;">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">
+                        <i class="fa-solid fa-lock"></i> Forgot password?
+                    </a>
+
+                </div>
+
+            </form>
+
+
+            <button onclick="CheckValidationsForLogin()" class="log-in-btn">Log in</button>
+        </div>
+    </div>
+
+
+    
     <script src="/Home-Section-files/home.js"></script>
     <script type="module" src="/Log-in-Section-files/login.js"></script>
     <script type="module" src="/JS-firebase-config-js/JSfirebase-config.js"></script>
