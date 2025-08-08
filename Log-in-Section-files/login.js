@@ -1,9 +1,11 @@
 const Username = document.getElementById('username');
 const UserPassword = document.getElementById('password');
+if (Username) {
+    Username.addEventListener('input', function () {
+        document.querySelector('.username-error').innerText = '';
+    })
+}
 
-Username.addEventListener('input', function () {
-    document.querySelector('.username-error').innerText = '';
-})
 UserPassword.addEventListener('input', function () {
     document.querySelector('.password-error').innerText = '';
 })
@@ -30,49 +32,63 @@ const closeemailbtn = document.querySelector('.close-emailbtn');
 const emailmodaloverlay = document.querySelector('.email-modal-overlay');
 const emailmodalBtn = document.querySelector('.emailmodalBtn');
 const phonemodalBtn = document.querySelector('.phonemodalBtn');
-const emailModalCrossBtn=document.querySelector('#emailModalCrossBtn');
+const emailModalCrossBtn = document.querySelector('#emailModalCrossBtn');
 
 
+if (emailmodalBtn) {
+    emailmodalBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        emailmodaloverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'
+    })
 
-emailmodalBtn.addEventListener('click',function(e){
-    e.preventDefault();
-    emailmodaloverlay.style.display='flex';
-    document.body.style.overflow='hidden'
-})
+}
 
-phonemodalBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    phoneDiv.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+if (phonemodalBtn) {
+    phonemodalBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        phoneDiv.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
 
-});
+    });
+}
 
-emailModalCrossBtn.addEventListener('click',()=>{
-    emailmodaloverlay.style.display='none';
-    document.body.style.overflow='auto'
-})
+if (emailModalCrossBtn) {
+    emailModalCrossBtn.addEventListener('click', () => {
+        emailmodaloverlay.style.display = 'none';
+        document.body.style.overflow = 'auto'
+    })
+}
 
+if (closeIcon2) {
+    closeIcon2.addEventListener('click', () => {
+        phoneDiv.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    })
+}
 
+if (closeIcon1) {
+    closeIcon1.addEventListener('click', () => {
+        forgetModal1.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    });
 
-closeIcon2.addEventListener('click', () => {
-    phoneDiv.style.display = 'none';
-    document.body.style.overflow = 'auto';
-})
+}
 
-closeIcon1.addEventListener('click', () => {
-    forgetModal1.style.display = 'none';
-    document.body.classList.remove('modal-open');
-});
 
 
 function showForgetModal() {
     document.getElementById('forget-modal-1').style.display = 'flex';
     document.body.classList.add('modal-open');
 }
-ForgetBtn.addEventListener('click', function (e) {
-    e.preventDefault()
-    showForgetModal()
-})
+
+if (ForgetBtn) {
+    ForgetBtn.addEventListener('click', function (e) {
+        e.preventDefault()
+        showForgetModal()
+    })
+}
+
 
 
 import { app } from "/JS-firebase-config-js/JSfirebase-config.js"
@@ -371,9 +387,13 @@ document.getElementById("github-login").addEventListener("click", () => {
             alert("Login failed: " + error.message);
         });
 });
-forgetEmail.addEventListener('input', () => {
-    document.querySelector('.invalid-forget-email').innerText = '';
-});
+
+if (forgetEmail) {
+    forgetEmail.addEventListener('input', () => {
+        document.querySelector('.invalid-forget-email').innerText = '';
+    });
+}
+
 phone.addEventListener('input', function () {
     phoneError.innerText = ''
 })

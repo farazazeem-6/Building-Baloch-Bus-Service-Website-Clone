@@ -86,93 +86,39 @@
     <!-- Login Section -->
     <div class="login-container">
         <div class="row" id="login-row">
-            <div class="col-md-6 order-1 order-md-2" id="side-img">
+            <div class="col-md-7 order-1 order-md-2" id="side-img">
                 <img src="/images/asset 20.png" alt="" class="img-fluid">
 
             </div>
 
             <!-- Login Heading Column -->
-            <div class="col-md-6 order-2 order-md-1 login-details-2" id="login-details">
+            <div class="col-md-5 order-2 order-md-1 login-details-2" id="login-details">
 
                 <h3 style="font-family: 'Montserrat', sans-serif;">Welcome to Baloch Transport Services Sign Up</h3>
                 <p>Create an account to book tickets, manage your travel, and enjoy seamless transportation
                     services
                     with us</p>
                 <div class="forms-container">
+                    <nav class="navbar">
+                        <a href="#" onclick="loginWithGoogle()" class="nav-item" id="google-btn" data-tooltip="Google"
+                            style="--delay: 1">
+                            <div class="icon google-icon"></div>
+                        </a>
 
+                        <a href="#" onclick="loginWithFacebook()" class="nav-item" data-tooltip="Facebook"
+                            style="--delay: 2">
+                            <div class="icon facebook-icon"></div>
+                        </a>
 
-                    <form id="form-no-1">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="first-name">First Name</label>
-                                <input type="text" class="form-control" placeholder="First name" id="first-name">
-                                <div class="first-name-error"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Last name" id="last-name">
-                                <div class="last-name-error"></div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <form id="form-no-2">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" placeholder="Enter Email" id="email">
-                                <div class="email-error"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" placeholder="03001234567" id="phone">
-                                <div class="phone-no-error"></div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <form id="form-no-3">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="cnic">CNIC</label>
-                                <input type="text" class="form-control" placeholder="22400123456780" id="cnic">
-                                <div class="cnic-error"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="">Gender</label> <br>
-                                <select name="" id="Gender">
-                                    <option value="" disabled selected>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <div class="gender-error"></div>
-
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <form id="form-no-4">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="password">Password</label>
-                                <input type="text" class="form-control" placeholder="Enter Password" id="password">
-                                <div class="password-error2"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="text" class="form-control" placeholder="Confirm Password"
-                                    id="confirm-password">
-                                <div class="confirm-password-error"></div>
-                            </div>
-                        </div>
-                    </form>
+                        <a href="#" id="github-login" class="nav-item" data-tooltip="GitHub" style="--delay: 3">
+                            <div class="icon github-icon"></div>
+                        </a>
+                    </nav>
 
                 </div>
+                <button class="phonemodalBtn" style="padding: 15px 20px;">Continue with phone no</button>
+                <button class="log-in-btn" id="register-btn">Register with email</button>
 
-                <button class="log-in-btn signup-btn" id="signup-btn">Register</button>
                 <p class="create-acc-text">Already have an account?<span><a href="/Log-in-Section-files/login.html"
                             style="color: #28a745; text-decoration: underline;">Sign
                             In</a></span></p>
@@ -263,9 +209,6 @@
         </p>
     </div>
 
-
-
-
     <!-- Modal  -->
 
 
@@ -285,9 +228,83 @@
         </div>
     </div>
 
-    <script src="/Home-Section-files/home.js"></script>
-    <script type="module" src="/SignUp-Section-files/signup.js"></script>
 
+
+    <!-- Register with email Modal  -->
+
+
+    <div class="form-overlay-div">
+
+        <form id="form-no-2" class="signup-form">
+            <div class="close-signupBtn"><img src="/images/remove.png" alt=""></div>
+
+            <h4>Signup with email</h4>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label for="email">Email</label>
+                    <input style="outline: none; box-shadow: none; border: 1px solid #28a745;" type="text"
+                        class="form-control" placeholder="Enter Email" id="email">
+                    <div class="email-error"></div>
+                </div>
+
+                <div class="col-lg-12">
+                    <label for="password">Password</label>
+                    <input style="outline: none; box-shadow: none; border: 1px solid #28a745;" type="text"
+                        class="form-control" placeholder="Enter Password" id="password">
+                    <div class="password-error2"></div>
+                </div>
+
+                <div class="col-lg-12">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input style="outline: none; box-shadow: none; border: 1px solid #28a745;" type="text"
+                        class="form-control" placeholder="Confirm Password" id="confirm-password">
+                    <div class="confirm-password-error"></div>
+                </div>
+            </div>
+            <button class="log-in-btn signup-btn" id="signup-btn">Register</button>
+        </form>
+
+    </div>
+
+    <!-- Phone Modal  -->
+
+    <div class="phoneModal-overlay">
+        <div class="phoneModal">
+            <div class="close-phonebtn"><img src="/images/remove.png" alt=""></div>
+            <h2>Phone Verification</h2>
+            <p style="padding-bottom: 20px;" class="ver-info">We'll send you a verification code</p>
+
+            <form class="form-phone-no">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" maxlength="11"
+                        required>
+                    <div class="login-phone-error"></div>
+                </div>
+                <div id="recaptcha-container"></div>
+                <button type="" class="send-otp-btn" id="phone-modal-btn">Send OTP</button>
+            </form>
+
+            <form class="form-otp">
+                <div class="form-group">
+                    <label for="otp">OTP</label>
+                    <input type="text" id="otp" name="otp" placeholder="Enter OTP" maxlength="6" required>
+                    <div class="otp-error"></div>
+                </div>
+
+                <button type="" class="verify-otp-btn" id="phone-modal-btn">Verify OTP</button>
+                <button class="resend-button" id="resendBtn" onclick="resendCode()">
+                    <span id="resendText">Resend code</span>
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="/Home-Section-files/home.js"></script>
+    <script type="module" src="/Log-in-Section-files/login.js"></script>
+    <script type="module" src="/SignUp-Section-files/signup.js"></script>
 
 </body>
 

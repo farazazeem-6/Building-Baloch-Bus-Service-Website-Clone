@@ -131,12 +131,7 @@
 //     //             phone,
 //     //             cnic,
 //     //             gender,
-//     //             address: {
-//     //                 street,
-//     //                 city,
-//     //                 state,
-//     //                 zipCode,
-//     //             }
+//     //         
 //     //         });
 
 //     //         alert("Profile updated successfully!");
@@ -150,19 +145,24 @@
 
 let headingName = document.getElementById('heading-name')
 const firstName1 = localStorage.getItem('first-name');
-const lastName1 = localStorage.getItem('last-name');
+// const lastName1 = localStorage.getItem('last-name');
 const email1 = localStorage.getItem('email');
 const phone1 = localStorage.getItem('phone');
 const cnic1 = localStorage.getItem('cnic');
 const gender1 = localStorage.getItem('gender');
 
+
+
+
+
+
 window.onload = function () {
     document.getElementById("first-name").value = firstName1;
-    document.getElementById("last-name").value = lastName1;
+    // document.getElementById("last-name").value = lastName1;
     document.getElementById("email").value = email1;
     document.getElementById("phone").value = phone1;
-    document.getElementById("cnic").value = cnic1;
-    headingName.innerText = `${firstName1} ${lastName1}`
+    document.getElementById("cnic").value = cnic1 || 'Not provided';
+    headingName.innerText = `${firstName1}`
 };
 
 

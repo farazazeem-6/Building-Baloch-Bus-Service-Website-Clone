@@ -78,6 +78,7 @@ body.modal-open {
     text-align: left;
     color: #212529;
     padding-top: 15px;
+
 }
 
 #form-1 input {
@@ -89,6 +90,17 @@ body.modal-open {
     padding: 15px 20px;
     border: none;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+}
+
+#form-1 input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 2px solid var(--color-lite-green);
+
 }
 
 #login-details input:focus {
@@ -429,7 +441,6 @@ input:-webkit-autofill:active {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     width: 450px;
     position: relative;
-
 }
 
 .close-phonebtn img {
@@ -478,7 +489,7 @@ input:-webkit-autofill:active {
     border: 2px solid #008000;
 }
 
- #phone-modal-btn {
+#phone-modal-btn {
     width: 100%;
     padding: 12px;
     background-color: #008000;
@@ -537,7 +548,8 @@ input:-webkit-autofill:active {
     font-family: var(--main-font);
     margin-top: 40px;
 }
-.close-emailbtn img{
+
+.close-emailbtn img {
     width: 30px;
 }
 

@@ -54,7 +54,7 @@ onAuthStateChanged(auth, async (user) => {
             localStorage.setItem("gender", gender);
 
             document.getElementById("customDropdownBtn").innerHTML =
-                `<span><i class="fa-solid fa-user"></i></span> ${firstName} ${lastName} ▾`;
+                `<span><i class="fa-solid fa-user"></i></span> ${firstName} <i class="fa-solid fa-caret-down"></i>`;
 
         } catch (error) {
             console.error("Error fetching user data:", error);
