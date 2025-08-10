@@ -1,0 +1,284 @@
+:root {
+    --color-green: rgb(0, 128, 0);
+    --color-lite-green: #28a745;
+    --main-font: "Montserrat", sans-serif;
+    --color-black: #434343;
+    --header-color: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+a,
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+
+#sidebar {
+    top: 0;
+    height: 100vh;
+    background-color: var(--header-color);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+    position: fixed;
+    width: 25%;
+}
+
+#main-section {
+    margin: 0 0 0 25%;
+    padding: 0;
+    width: 75%;
+}
+
+#dash-header {
+    padding: 40px 120px 20px 120px;
+    margin: 0;
+    width: 100%;
+    background: transparent;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    gap: 30px;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.button {
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.button button {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #28a745;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: var(--main-font);
+    transition: all .3s ease;
+    color: #28a745;
+    background: transparent;
+}
+
+.button button:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.custom-dropdown {
+    display: flex;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+
+#switch-user {
+    border: 1px solid #28a745;
+    text-decoration: none;
+    color: #28a745;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: var(--main-font);
+    transition: all .3s ease;
+}
+
+#switch-user:hover {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+
+/* Router Containe CSS  */
+.route-container {
+    padding: 20px 50px;
+    font-family: var(--main-font);
+}
+
+.route-container h4 {
+    color: #000000;
+    font-size: 29px;
+    font-weight: 600;
+    font-family: var(--main-font);
+}
+
+.add-route {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.route-container button {
+    border: 1px solid #28a745;
+    text-decoration: none;
+    color: #28a745;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-family: var(--main-font);
+    transition: all .3s ease;
+    background: transparent;
+}
+
+.route-container button:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Cards CSS */
+
+
+.cards-container {
+    margin-top: 50px;
+    font-family: var(--main-font);
+    height: 100%;
+    padding:0px 50px;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+}
+
+.card-1 {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-img-section {
+    padding: 10px 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #ebebeb;
+
+}
+
+.card-img-section img {
+    width: 160px;
+}
+
+.main-content {
+    padding: 24px;
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 16px;
+    font-family: var(--main-font);
+}
+
+.service-details {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.departure-city {
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #28a745;
+}
+
+
+.destination-city {
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid #28a745;
+}
+
+.bus-type {
+    color: #28a745;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid #28a745;
+}
+
+
+.created-date {
+    color: #28a745;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    color: #28a745;
+    border: 1px solid #28a745;
+
+}
+
+.btn:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+
+@media(max-width:1093px) {
+    .card-1 {
+        width: 100%;
+    }
+}

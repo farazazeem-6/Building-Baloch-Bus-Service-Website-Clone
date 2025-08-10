@@ -9,7 +9,6 @@ body.no-scroll {
     overflow: hidden;
 }
 
-
 :root {
     --color-green: rgb(0, 128, 0);
     --color-lite-green: #28a745;
@@ -121,6 +120,8 @@ header {
 .cargo-container {
     display: flex;
     align-items: center;
+    gap: 20px;
+
 }
 
 
@@ -1144,19 +1145,9 @@ footer {
 }
 
 @media(max-width:1200px) {
-    .swap-cards-container {
-        padding: 40px 90px;
-    }
-}
 
-@media(max-width:1100px) {
-    .swap-cards-container {
-        padding: 40px 50px;
-    }
-}
 
-@media (max-width: 1009px) {
-    header {
+        header {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -1189,6 +1180,8 @@ footer {
 
     .cargo-container {
         padding-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .nav-buttons ul {
@@ -1203,6 +1196,21 @@ footer {
         max-height: 500px;
         opacity: 1;
     }
+
+
+    .swap-cards-container {
+        padding: 40px 90px;
+    }
+}
+
+@media(max-width:1100px) {
+    .swap-cards-container {
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: 1009px) {
+
 
     .add-boxes {
         padding: 0px 50px;
