@@ -1,3 +1,8 @@
+const firstNameSpan = document.querySelector('.first-name')
+let firstName = localStorage.getItem('first-name');
+// console.log(firstName);
+firstNameSpan.innerHTML=`<i style="padding-right: 4px;"class="fa-solid fa-user"></i> ${firstName}`;
+
 const routecancelbtn = document.querySelector('.route-cancel-btn');
 const routesubmitbtn = document.querySelector('.route-submit-btn');
 const addroutebtn = document.querySelector('#add-route-btn');
