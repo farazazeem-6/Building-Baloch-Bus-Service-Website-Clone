@@ -54,14 +54,9 @@
             </div>
         </div>
         <div class="" id="main-section">
-            <header id="dash-header">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/Home-Section-files/index.html" id="switch-user">Switch to User</a>
-                        </li>
-                    </ul>
-                </nav>
+            <div id="dash-header">
+
+                <a href="/Home-Section-files/index.html" id="switch-user">Switch to User</a>
 
                 <div class="custom-dropdown">
                     <button class="custom-dropdown-toggle" id="customDropdownBtn">
@@ -74,8 +69,7 @@
                     </ul>
                 </div>
 
-
-            </header>
+            </div>
             <hr>
             <div class="route-container">
                 <div class="heading">
@@ -88,8 +82,17 @@
 
             <div class="cards-container">
 
+                <div class="no-bus-text">
+                    <img src="/images/bus (1).png" alt="" width="170px">
+                    <p style="font-weight: bold;">No Bus Available</p>
+                    <p>Add new routes of buses.
 
-                <div class="card-1">
+                    </p>
+
+                </div>
+
+
+                <!-- <div class="card-1">
                     <div class="card-img-section">
                         <img src="/images/bus (1).png" alt="">
                     </div>
@@ -111,68 +114,186 @@
                                         class="ri-delete-bin-line"></i></span>Delete</button>
                         </div>
                     </div>
-                </div>
-
-
-
-
-                <div class="card-1">
-                    <div class="card-img-section">
-                        <img src="/images/bus (1).png" alt="">
-                    </div>
-
-                    <div class="main-content">
-                        <h2 class="service-title">Lahore to Multan</h2>
-
-                        <div class="service-details">
-                            <span class="departure-city">Bahawalpur</span>
-                            <span class="destination-city">Lahore</span>
-                            <span class="bus-type">In-person</span>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button class="btn btn-edit"> <span><i
-                                        class="fa-solid fa-pen-to-square"></i></span>Edit</button>
-                            <button class="btn btn-view"> <span><i class="fa-regular fa-eye"></i></span>View</button>
-                            <button class="btn btn-delete"> <span><i
-                                        class="ri-delete-bin-line"></i></span>Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card-1">
-                    <div class="card-img-section">
-                        <img src="/images/bus (1).png" alt="">
-                    </div>
-
-                    <div class="main-content">
-                        <h2 class="service-title">Lahore to Multan</h2>
-
-                        <div class="service-details">
-                            <span class="departure-city">Bahawalpur</span>
-                            <span class="destination-city">Lahore</span>
-                            <span class="bus-type">In-person</span>
-                        </div>
-
-                        <div class="action-buttons">
-                            <button class="btn btn-edit"> <span><i
-                                        class="fa-solid fa-pen-to-square"></i></span>Edit</button>
-                            <button class="btn btn-view"> <span><i class="fa-regular fa-eye"></i></span>View</button>
-                            <button class="btn btn-delete"> <span><i
-                                        class="ri-delete-bin-line"></i></span>Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-
-
+                </div> -->
 
 
             </div>
+
         </div>
+    </div>
 
 
+    </div>
+
+
+    <!-- Add Route Modal  -->
+
+    <div class="route-modal-overlay">
+        <div class="route-modal-container">
+            <div class="travel-info">
+
+                <div class="travel-fields">
+                    <h4>Route Details:</h4>
+                    <div class="row" id="row-1">
+                        <div class="col-md-6">
+                            <label for="departure">Departure City</label>
+                            <select id="departure" name="departure" required>
+                                <option value="">Select Departure</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Rawalpindi">Rawalpindi</option>
+                                <option value="Faisalabad">Faisalabad</option>
+                                <option value="Multan">Multan</option>
+                            </select>
+                            <div class="dep-error"></div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="destination">Destination City </label>
+                            <select id="destination" name="destination" required>
+                                <option value="">Select Destination</option>
+                                <option value="Lahore">Lahore</option>
+                                <option value="Karachi">Karachi</option>
+                                <option value="Islamabad">Islamabad</option>
+                                <option value="Rawalpindi">Rawalpindi</option>
+                                <option value="Faisalabad">Faisalabad</option>
+                                <option value="Multan">Multan</option>
+                            </select>
+                            <div class="dis-error"></div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="row-2">
+                        <div class="col-md-6">
+                            <label for="Date">Travel Date</label>
+                            <input type="date" id="Date" name="travelDate" required>
+                            <div class="date-error"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Time">Departure Time</label>
+                            <select id="DepartureTime" name="Time" required>
+                                <option value="">Select Time</option>
+                                <option value="06:00">06:00 AM</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="18:00">06:00 PM</option>
+                                <option value="21:00">09:00 PM</option>
+                            </select>
+                            <div class="departure-time-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="seat">Destination time</label>
+                            <select id="DestinationTime" name="Time" required>
+                                <option value="">Select Time</option>
+                                <option value="06:00">06:00 AM</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="18:00">06:00 PM</option>
+                                <option value="21:00">09:00 PM</option>
+                            </select>
+                            <div class="destination-time-error"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="busType">Bus Type <span class="required"></span></label>
+                            <select id="busType" name="busType" required>
+                                <option value="">Select Bus Type</option>
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                            </select>
+                            <div class="bustype-error"></div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="select-terminal-container">
+                                <label for="">Terminal</label>
+                                <select class="terminal" aria-label="Default select example">
+                                    <option value="">Select Terminal</option>
+                                    <option>BALOCH TERMINAL CHOWK AZAM</option>
+                                    <option>RAHBAR TERMINAL</option>
+                                    <option>NIAZI EXPRESS TERMINAL</option>
+                                    <option>AL-HALAL-TERMINAL</option>
+                                </select>
+                                <div class="terminal-error"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="fare">
+                                <label for="">Fare</label>
+                                <input type="text" name="" maxlength="4" id="fare"
+                                    placeholder="Enter the per seat fare">
+                                <div class="fare-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="route-detail-btn">
+                    <button class="route-cancel-btn">Cancel</button>
+                    <button class="route-submit-btn">Save details</button>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- View Details Modal  -->
+
+    <div id="view-modal-overlay" class="view-modal-overlay">
+        <div class="view-modal-data">
+            <div class="cross-img">
+                <img src="/images/remove.png" alt="">
+            </div>
+            <h2>Route Details</h2>
+            <div class="view-text-container">
+
+                <div class="key-value">
+                    <div class="">Departure City:</div>
+                    <div class="dep"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Destination City:</div>
+                    <div class="des"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Date:</div>
+                    <div class="dep-date"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Departure:</div>
+                    <div class="dep-time"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Arrival:</div>
+                    <div class="arr-time"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Terminal:</div>
+                    <div class="terminal-name"></div>
+                </div>
+                <div class="key-value">
+                    <div class="">Fare:</div>
+                    <div class="show-fare"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <script src="/Home-Section-files/home.js"></script>

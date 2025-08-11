@@ -55,6 +55,7 @@ onAuthStateChanged(auth, async (user) => {
 
             document.getElementById("customDropdownBtn").innerHTML =
                 `<span><i class="fa-solid fa-user"></i></span> ${firstName} <i class="fa-solid fa-caret-down"></i>`;
+            document.querySelector('.switch-to-admin').style.display = 'block';
 
         } catch (error) {
             console.error("Error fetching user data:", error);

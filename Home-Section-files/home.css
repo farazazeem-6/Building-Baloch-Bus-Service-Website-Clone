@@ -8,6 +8,9 @@
 body.no-scroll {
     overflow: hidden;
 }
+.switch-to-admin{
+    display: none;
+}
 
 :root {
     --color-green: rgb(0, 128, 0);
@@ -1124,25 +1127,6 @@ footer {
     margin-bottom: 30px;
 }
 
-
-
-
-/* default transition effect */
-[data-barba="container"] {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-[data-barba="container"].is-leaving {
-    opacity: 0;
-    transform: translateX(-50px);
-}
-
-[data-barba="container"].is-entering {
-    opacity: 0;
-    transform: translateX(50px);
-}
 
 @media(max-width:1200px) {
 
