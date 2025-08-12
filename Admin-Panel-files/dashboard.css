@@ -28,6 +28,34 @@ nav {
     padding: 0;
 }
 
+
+/* Date Picker CSS  */
+
+.datepicker {
+    padding: 8px !important;
+    font-size: 14px;
+}
+
+
+.datepicker table tr td,
+.datepicker table tr th {
+    padding: 4px 8px;
+}
+
+
+.datepicker table tr th {
+    color: rgb(97, 180, 7) !important;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: var(--main-font);
+}
+
+.datepicker table tr td {
+    color: rgb(74, 74, 74);
+    font-size: 12px;
+}
+
+
 .dep-error,
 .dis-error,
 .date-error,
@@ -494,6 +522,7 @@ input:-webkit-autofill {
     padding: 10px;
 
 }
+
 .view-modal-data h2 {
     text-align: center;
     font-family: var(--main-font);
@@ -509,8 +538,15 @@ input:-webkit-autofill {
 
 }
 
-
-
+.select-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-green);
+    font-size: 20px;
+    pointer-events: none;
+}
 
 
 @media(max-width:1093px) {

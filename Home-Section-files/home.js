@@ -11,7 +11,6 @@ if (hamburgerBtn && navButtons && cargoContainer) {
   });
 }
 
-
 // ------------------ Search Validation ------------------
 document.addEventListener('DOMContentLoaded', function () {
   const searchBtn = document.getElementsByClassName('search-button');
@@ -324,18 +323,47 @@ class CustomDropdown {
 window.dropdownInstances = window.dropdownInstances || [];
 
 // Only create dropdown instances if the elements exist in the DOM
-if (document.getElementById('origin-dropdown-btn') && 
-    document.getElementById('origin-dropdown-menu') && 
-    document.getElementById('origin-dropdown-text')) {
+if (document.getElementById('origin-dropdown-btn') &&
+  document.getElementById('origin-dropdown-menu') &&
+  document.getElementById('origin-dropdown-text')) {
   const originDropdown = new CustomDropdown('origin-dropdown-btn', 'origin-dropdown-menu', 'origin-dropdown-text', 'Select Origin');
   window.dropdownInstances.push(originDropdown);
 }
 
-if (document.getElementById('destination-dropdown-btn') && 
-    document.getElementById('destination-dropdown-menu') && 
-    document.getElementById('destination-dropdown-text')) {
+if (document.getElementById('destination-dropdown-btn') &&
+  document.getElementById('destination-dropdown-menu') &&
+  document.getElementById('destination-dropdown-text')) {
   const destinationDropdown = new CustomDropdown('destination-dropdown-btn', 'destination-dropdown-menu', 'destination-dropdown-text', 'Select Destination');
   window.dropdownInstances.push(destinationDropdown);
+}
+
+if (document.getElementById('depTime-dropdown-btn') &&
+  document.getElementById('depTime-dropdown-menu') &&
+  document.getElementById('depTime-dropdown-text')) {
+  const departureTimeDropdown = new CustomDropdown('depTime-dropdown-btn', 'depTime-dropdown-menu', 'depTime-dropdown-text', 'Select Departure Time');
+  window.dropdownInstances.push(departureTimeDropdown);
+}
+
+
+if (document.getElementById('desTime-dropdown-btn') &&
+  document.getElementById('desTime-dropdown-menu') &&
+  document.getElementById('desTime-dropdown-text')) {
+  const destinationTimeDropdown = new CustomDropdown('desTime-dropdown-btn', 'desTime-dropdown-menu', 'desTime-dropdown-text', 'Select Destination Time');
+  window.dropdownInstances.push(destinationTimeDropdown);
+}
+
+if (document.getElementById('BusType-dropdown-btn') &&
+  document.getElementById('BusType-dropdown-menu') &&
+  document.getElementById('BusType-dropdown-text')) {
+  const BusTypeDropdown = new CustomDropdown('BusType-dropdown-btn', 'BusType-dropdown-menu', 'BusType-dropdown-text', 'Select Bus Type');
+  window.dropdownInstances.push(BusTypeDropdown);
+}
+
+if (document.getElementById('BusTerminal-dropdown-btn') &&
+  document.getElementById('BusTerminal-dropdown-menu') &&
+  document.getElementById('BusTerminal-dropdown-text')) {
+  const BusTerminalDropdown = new CustomDropdown('BusTerminal-dropdown-btn', 'BusTerminal-dropdown-menu', 'BusTerminal-dropdown-text', 'Select Terminal');
+  window.dropdownInstances.push(BusTerminalDropdown);
 }
 
 

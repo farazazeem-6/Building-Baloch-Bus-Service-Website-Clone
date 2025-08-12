@@ -62,7 +62,8 @@
 
                 <div class="custom-dropdown">
                     <button class="custom-dropdown-toggle" id="customDropdownBtn">
-                        <span class="first-name"><i style="padding-right: 4px;"class="fa-solid fa-user"></i>User</span><span style="padding-left: 5px;"> <i
+                        <span class="first-name"><i style="padding-right: 4px;"
+                                class="fa-solid fa-user"></i>User</span><span style="padding-left: 5px;"> <i
                                 class="fa-solid fa-caret-down"></i></span>
                     </button>
                     <ul class="custom-dropdown-menu" id="customDropdownMenu">
@@ -71,10 +72,7 @@
                     </ul>
                 </div>
 
-
-
             </div>
-
 
             <hr>
             <div class="route-container">
@@ -128,9 +126,7 @@
         </div>
     </div>
 
-
     </div>
-
 
     <!-- Add Route Modal  -->
 
@@ -143,50 +139,133 @@
                     <div class="row" id="row-1">
                         <div class="col-md-6">
                             <label for="departure">Departure City</label>
-                            <select id="departure" name="departure" required>
-                                <option value="">Select Departure</option>
-                                <option value="Lahore">Lahore</option>
-                                <option value="Karachi">Karachi</option>
-                                <option value="Islamabad">Islamabad</option>
-                                <option value="Rawalpindi">Rawalpindi</option>
-                                <option value="Faisalabad">Faisalabad</option>
-                                <option value="Multan">Multan</option>
-                            </select>
+
+
+                            <div class="select-with-icon">
+                                <i class="fa-regular fa-circle select-icon"></i>
+                                <div class="dropdown-container">
+                                    <div class="selection-dropdown-button placeholder" id="origin-dropdown-btn">
+                                        <span id="origin-dropdown-text">Select Origin</span>
+                                        <div class="chevron"></div>
+                                    </div>
+                                    <div class="selection-dropdown-menu" id="origin-dropdown-menu">
+                                        <div class="selection-dropdown-option" data-value="Lahore-LHR">
+                                            Lahore</div>
+                                        <div class="selection-dropdown-option" data-value="Karachi">Karachi
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Rawalpindi-RWP">
+                                            Rawalpindi</div>
+                                        <div class="selection-dropdown-option" data-value="Faisalabad-FSD">
+                                            Faisalabad
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Chowk Azam-CHA">
+                                            Chowk
+                                            Azam
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Peshawar-PSH">
+                                            Peshawar
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Layyah-LYA">
+                                            Layyah</div>
+                                        <div class="selection-dropdown-option" data-value="Multan-MUL">
+                                            Multan</div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="dep-error"></div>
 
                         </div>
+
+
                         <div class="col-md-6">
                             <label for="destination">Destination City </label>
-                            <select id="destination" name="destination" required>
-                                <option value="">Select Destination</option>
-                                <option value="Lahore">Lahore</option>
-                                <option value="Karachi">Karachi</option>
-                                <option value="Islamabad">Islamabad</option>
-                                <option value="Rawalpindi">Rawalpindi</option>
-                                <option value="Faisalabad">Faisalabad</option>
-                                <option value="Multan">Multan</option>
-                            </select>
+
+                            <div class="select-with-icon">
+                                <i class="fa-solid fa-location-dot select-icon"></i>
+                                <div class="dropdown-container">
+                                    <div class="selection-dropdown-button placeholder" id="destination-dropdown-btn">
+                                        <span id="destination-dropdown-text">Select Destination</span>
+                                        <div class="chevron"></div>
+                                    </div>
+                                    <div class="selection-dropdown-menu" id="destination-dropdown-menu">
+                                        <div class="selection-dropdown-option" data-value="Lahore-LHR">
+                                            Lahore</div>
+                                        <div class="selection-dropdown-option" data-value="Karachi">Karachi
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Rawalpindi-RWP">
+                                            Rawalpindi</div>
+                                        <div class="selection-dropdown-option" data-value="Faisalabad-FSD">
+                                            Faisalabad
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Chowk Azam-CHA">
+                                            Chowk
+                                            Azam
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Peshawar-PSH">
+                                            Peshawar
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="Layyah-LYA">
+                                            Layyah</div>
+                                        <div class="selection-dropdown-option" data-value="Multan-MUL">
+                                            Multan</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="dis-error"></div>
 
                         </div>
                     </div>
                     <div class="row" id="row-2">
+
+
                         <div class="col-md-6">
-                            <label for="Date">Travel Date</label>
-                            <input type="date" id="Date" name="travelDate" required>
-                            <div class="date-error"></div>
+                            <div class="form-group position-relative">
+                                <label for="datepicker">Date:</label>
+                                <div class="input-with-icon">
+                                    <i class="ri-calendar-2-line calendar-icon"></i>
+                                    <input type="text" id="datepicker" class="form-control" />
+                                </div>
+                            </div>
                         </div>
+
+
+
                         <div class="col-md-6">
                             <label for="Time">Departure Time</label>
-                            <select id="DepartureTime" name="Time" required>
-                                <option value="">Select Time</option>
-                                <option value="06:00">06:00 AM</option>
-                                <option value="09:00">09:00 AM</option>
-                                <option value="12:00">12:00 PM</option>
-                                <option value="15:00">03:00 PM</option>
-                                <option value="18:00">06:00 PM</option>
-                                <option value="21:00">09:00 PM</option>
-                            </select>
+
+                            <div class="select-with-icon">
+                                <i class="ri-arrow-up-fill select-icon"></i>
+                                <div class="dropdown-container">
+                                    <div class="selection-dropdown-button placeholder" id="depTime-dropdown-btn">
+                                        <span id="depTime-dropdown-text">Select Departure Time</span>
+                                        <div class="chevron"></div>
+                                    </div>
+                                    <div class="selection-dropdown-menu" id="depTime-dropdown-menu">
+                                        <div class="selection-dropdown-option" data-value="06:00 AM">
+                                            06:00 AM</div>
+                                        <div class="selection-dropdown-option" data-value="09:00 AM">09:00 PM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="12:00 PM">
+                                            12:00 PM</div>
+                                        <div class="selection-dropdown-option" data-value="03:00 PM">
+                                            03:00 PM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="06:00 PM">
+                                            06:00 AM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="09:00 PM">
+                                            09:00 PM
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="departure-time-error"></div>
                         </div>
                     </div>
@@ -194,39 +273,92 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="seat">Destination time</label>
-                            <select id="DestinationTime" name="Time" required>
-                                <option value="">Select Time</option>
-                                <option value="06:00">06:00 AM</option>
-                                <option value="09:00">09:00 AM</option>
-                                <option value="12:00">12:00 PM</option>
-                                <option value="15:00">03:00 PM</option>
-                                <option value="18:00">06:00 PM</option>
-                                <option value="21:00">09:00 PM</option>
-                            </select>
+
+
+                            <div class="select-with-icon">
+                                <i class="ri-arrow-down-fill select-icon"></i>
+                                <div class="dropdown-container">
+                                    <div class="selection-dropdown-button placeholder" id="desTime-dropdown-btn">
+                                        <span id="desTime-dropdown-text">Select Destination Time</span>
+                                        <div class="chevron"></div>
+                                    </div>
+                                    <div class="selection-dropdown-menu" id="desTime-dropdown-menu">
+                                        <div class="selection-dropdown-option" data-value="06:00 AM">
+                                            06:00 AM</div>
+                                        <div class="selection-dropdown-option" data-value="09:00 AM">09:00 PM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="12:00 PM">
+                                            12:00 PM</div>
+                                        <div class="selection-dropdown-option" data-value="03:00 PM">
+                                            03:00 PM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="06:00 PM">
+                                            06:00 AM
+                                        </div>
+                                        <div class="selection-dropdown-option" data-value="09:00 PM">
+                                            09:00 PM
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="destination-time-error"></div>
                         </div>
+
+
                         <div class="col-md-6">
                             <label for="busType">Bus Type <span class="required"></span></label>
-                            <select id="busType" name="busType" required>
-                                <option value="">Select Bus Type</option>
-                                <option value="economy">Economy</option>
-                                <option value="business">Business</option>
-                            </select>
+
+                            <div class="select-with-icon">
+                                <i class="ri-bus-fill select-icon"></i>
+                                <div class="dropdown-container">
+                                    <div class="selection-dropdown-button placeholder" id="BusType-dropdown-btn">
+                                        <span id="BusType-dropdown-text">Select Destination Time</span>
+                                        <div class="chevron"></div>
+                                    </div>
+                                    <div class="selection-dropdown-menu" id="BusType-dropdown-menu">
+                                        <div class="selection-dropdown-option" data-value="Business">
+                                            Buisiness</div>
+                                        <div class="selection-dropdown-option" data-value="Economy">Economy
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                             <div class="bustype-error"></div>
                         </div>
+
+
 
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="select-terminal-container">
                                 <label for="">Terminal</label>
-                                <select class="terminal" aria-label="Default select example">
-                                    <option value="">Select Terminal</option>
-                                    <option>BALOCH TERMINAL CHOWK AZAM</option>
-                                    <option>RAHBAR TERMINAL</option>
-                                    <option>NIAZI EXPRESS TERMINAL</option>
-                                    <option>AL-HALAL-TERMINAL</option>
-                                </select>
+
+                                <div class="select-with-icon">
+                                    <i class="fa-solid fa-building select-icon"></i>
+                                    <div class="dropdown-container">
+                                        <div class="selection-dropdown-button placeholder" id="BusTerminal-dropdown-btn">
+                                            <span id="BusTerminal-dropdown-text">Select Terminal</span>
+                                            <div class="chevron"></div>
+                                        </div>
+                                        <div class="selection-dropdown-menu" id="BusTerminal-dropdown-menu">
+                                            <div class="selection-dropdown-option" data-value="DAEWOO EXPRESS">
+                                                DAEWOO EXPRESS</div>
+                                            <div class="selection-dropdown-option" data-value="AL-HALAL-TERMINAL">
+                                                AL-HALAL-TRAVELS
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="terminal-error"></div>
 
                             </div>
@@ -256,7 +388,6 @@
 
         </div>
     </div>
-
 
 
     <!-- View Details Modal  -->
@@ -306,6 +437,42 @@
     <script type="module" src="/JS-auth-check-js/auth-check.js"></script>
     <script type="module" src="/JS-firebase-config-js/JSfirebase-config.js"></script>
     <script src="/Admin-Panel-files/dashboard.js"></script>
+
+
+
+    <!-- jQuery (Required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Bootstrap Datepicker JS -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get today's date
+            const today = new Date();
+
+            // Format it as yyyy-mm-dd
+            const formattedToday = today.toISOString().split('T')[0];
+
+            const maxDate = new Date();
+            maxDate.setDate(today.getDate() + 4);
+            $('#datepicker').val(formattedToday);
+
+            $('#datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                startDate: today,
+                endDate: maxDate,
+                orientation: "top auto",
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 const firstNameSpan = document.querySelector('.first-name')
 let firstName = localStorage.getItem('first-name');
 // console.log(firstName);
-firstNameSpan.innerHTML=`<i style="padding-right: 4px;"class="fa-solid fa-user"></i> ${firstName}`;
+firstNameSpan.innerHTML = `<i style="padding-right: 4px;"class="fa-solid fa-user"></i> ${firstName}`;
 
 const routecancelbtn = document.querySelector('.route-cancel-btn');
 const routesubmitbtn = document.querySelector('.route-submit-btn');
@@ -10,14 +10,26 @@ const routemodaloverlay = document.querySelector('.route-modal-overlay');
 const viewmodaloverlay = document.querySelector('#view-modal-overlay');
 const crossIcon = document.querySelector('.cross-img img');
 
-const Departure = document.getElementById('departure');
-const Destination = document.getElementById('destination');
-const Dates = document.getElementById('Date');
-const DepartureTime = document.getElementById('DepartureTime');
-const DestinationTime = document.getElementById('DestinationTime');
-const BusType = document.getElementById('busType');
-const terminal = document.querySelector('.terminal');
+
+const OrigindropdownMenu = document.getElementById('origin-dropdown-menu');
+const DesdropdownMenu = document.getElementById('destination-dropdown-menu');
+const DepTimedropdownMenu = document.getElementById('depTime-dropdown-menu');
+const DesTimedropdownMenu = document.getElementById('desTime-dropdown-menu');
+const BusTypedropdownMenu = document.getElementById('BusType-dropdown-menu');
+const BusTerminaldropdownMenu = document.getElementById('BusTerminal-dropdown-menu');
+
+
+
+const Departure = document.getElementById('origin-dropdown-menu');
+const Destination = document.getElementById('destination-dropdown-menu');
+const Dates = document.getElementById('datepicker');
+const DepartureTime = document.getElementById('depTime-dropdown-menu');
+const DestinationTime = document.getElementById('desTime-dropdown-menu');
+const BusType = document.getElementById('BusType-dropdown-menu');
+const terminal = document.getElementById('BusTerminal-dropdown-menu');
 const fare = document.querySelector('#fare');
+
+
 const noCardDiv = document.querySelector(".no-bus-text");
 const cardsContainer = document.querySelector('.cards-container');
 
@@ -45,13 +57,39 @@ if (addroutebtn) {
     });
 }
 
+// --- 1. Reset form and dropdown selections on cancel ---
 if (routecancelbtn) {
     routecancelbtn.addEventListener('click', () => {
+        // Hide modal
         routemodaloverlay.style.display = 'none';
         document.body.style.overflow = 'auto';
+
+        // Clear error messages
+        document.querySelector('.dep-error').innerText = '';
+        document.querySelector('.dis-error').innerText = '';
+        document.querySelector('.departure-time-error').innerText = '';
+        document.querySelector('.destination-time-error').innerText = '';
+        document.querySelector('.bustype-error').innerText = '';
+        document.querySelector('.terminal-error').innerText = '';
+        document.querySelector('.fare-error').innerText = '';
+
+        // Reset inputs
+        clearForm();
+
+        // Reset selected variables
+        selectedOrigin = null;
+        selectedDes = null;
+        selectedDepTime = null;
+        selectedDesTime = null;
+        selectedBusType = null;
+        selectedBusTerminal = null;
+
+        // Reset visible dropdown labels (assuming label span is inside dropdown button)
+        document.querySelectorAll('.dropdown-button span').forEach(el => {
+            el.innerText = 'Select'; // change this to your default label
+        });
     });
 }
-
 
 
 
@@ -66,7 +104,7 @@ function toggleNoCardMessage() {
 function clearForm() {
     Departure.value = "";
     Destination.value = "";
-    Dates.value = "";
+    // Dates.value = "";
     DepartureTime.value = "";
     DestinationTime.value = "";
     BusType.value = "";
@@ -185,56 +223,130 @@ cardsContainer.addEventListener("click", function (event) {
     }
 });
 
+
+let selectedOrigin = null;
+let selectedDes = null;
+let selectedDepTime = null;
+let selectedDesTime = null;
+let selectedBusType = null;
+let selectedBusTerminal = null;
+
+// Origin dropdown
+if (OrigindropdownMenu) {
+    OrigindropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedOrigin = clickedOption.getAttribute('data-value');
+            document.querySelector('.dep-error').innerText = ''; // clear error
+        }
+    });
+}
+
+// Destination dropdown
+if (DesdropdownMenu) {
+    DesdropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedDes = clickedOption.getAttribute('data-value');
+            document.querySelector('.dis-error').innerText = ''; // clear error
+        }
+    });
+}
+
+// Departure time dropdown
+if (DepTimedropdownMenu) {
+    DepTimedropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedDepTime = clickedOption.getAttribute('data-value');
+            document.querySelector('.departure-time-error').innerText = ''; // clear error
+        }
+    });
+}
+
+// Destination time dropdown
+if (DesTimedropdownMenu) {
+    DesTimedropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedDesTime = clickedOption.getAttribute('data-value');
+            document.querySelector('.destination-time-error').innerText = ''; // clear error
+        }
+    });
+}
+
+// Bus type dropdown
+if (BusTypedropdownMenu) {
+    BusTypedropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedBusType = clickedOption.getAttribute('data-value');
+            document.querySelector('.bustype-error').innerText = ''; // clear error
+        }
+    });
+}
+
+// Bus terminal dropdown
+if (BusTerminaldropdownMenu) {
+    BusTerminaldropdownMenu.addEventListener('click', function (event) {
+        const clickedOption = event.target.closest('.selection-dropdown-option');
+        if (clickedOption) {
+            selectedBusTerminal = clickedOption.getAttribute('data-value');
+            document.querySelector('.terminal-error').innerText = ''; // clear error
+        }
+    });
+}
+
+
+
 function addOrEditRoute() {
-    const GetDeparture = Departure.value;
-    const GetDestination = Destination.value;
+    const GetDeparture = selectedOrigin;
+    const GetDestination = selectedDes;
     const GetDate = Dates.value;
-    const GetDepartureTime = DepartureTime.value;
-    const GetDestinationTime = DestinationTime.value;
-    const GetBusType = BusType.value;
-    const GetTerminal = terminal.value;
+    const GetDepartureTime = selectedDepTime;
+    const GetDestinationTime = selectedDesTime;
+    const GetBusType = selectedBusType;
+    const GetTerminal = selectedBusTerminal;
     const GetFare = fare.value.trim();
 
     let Flag = true;
 
     document.querySelector('.dep-error').innerText = '';
     document.querySelector('.dis-error').innerText = '';
-    document.querySelector('.date-error').innerText = '';
     document.querySelector('.departure-time-error').innerText = '';
     document.querySelector('.destination-time-error').innerText = '';
     document.querySelector('.bustype-error').innerText = '';
     document.querySelector('.terminal-error').innerText = '';
     document.querySelector('.fare-error').innerText = '';
 
-    if (GetDeparture === "") {
-        document.querySelector('.dep-error').innerText = 'Please select a departure city';
-        Flag = false;
+
+    if (!selectedOrigin) {
+        document.querySelector('.dep-error').innerText = 'Departure city required';
+        Flag = false
     }
-    if (GetDestination === "") {
-        document.querySelector('.dis-error').innerText = 'Please select a destination city';
-        Flag = false;
+
+    if (!selectedDes) {
+        document.querySelector('.dis-error').innerText = 'Destination city required';
+        Flag = false
     }
-    if (GetDeparture !== "" && GetDestination !== "" && GetDeparture === GetDestination) {
-        document.querySelector('.dis-error').innerText = 'Departure and destination cannot be the same';
-        Flag = false;
+    if (selectedOrigin === selectedDes) {
+        document.querySelector('.dis-error').innerText = 'Departure and Destination city cannot be same';
+        Flag = false
     }
-    if (GetDepartureTime === "") {
+
+    if (!selectedDepTime) {
         document.querySelector('.departure-time-error').innerText = 'Departure time required';
         Flag = false;
     }
-    if (GetDestinationTime === "") {
+    if (!selectedDesTime) {
         document.querySelector('.destination-time-error').innerText = 'Destination time required';
         Flag = false;
     }
-    if (GetDate === "") {
-        document.querySelector('.date-error').innerText = 'Please select a date';
-        Flag = false;
-    }
-    if (GetBusType === "") {
+    if (!selectedBusType) {
         document.querySelector('.bustype-error').innerText = 'Please select bus type';
         Flag = false;
     }
-    if (GetTerminal === '') {
+    if (!selectedBusTerminal) {
         document.querySelector('.terminal-error').innerText = 'Please select terminal';
         Flag = false;
     }
@@ -249,13 +361,13 @@ function addOrEditRoute() {
 
     if (Flag) {
         const newData = {
-            departure: GetDeparture,
-            destination: GetDestination,
+            departure: selectedOrigin,
+            destination: selectedDes,
             date: GetDate,
-            departureTime: GetDepartureTime,
-            destinationTime: GetDestinationTime,
-            type: GetBusType,
-            terminal: GetTerminal,
+            departureTime: selectedDepTime,
+            destinationTime: selectedDesTime,
+            type: selectedBusType,
+            terminal: selectedBusTerminal,
             fare: GetFare
         };
 
@@ -272,7 +384,6 @@ function addOrEditRoute() {
 
             editIndex = null;
         } else {
-
             createCard(newData);
         }
 
@@ -286,11 +397,8 @@ if (routesubmitbtn) {
     routesubmitbtn.addEventListener('click', addOrEditRoute);
 }
 
-
-
-[Departure, Destination, Dates, DepartureTime, DestinationTime, BusType, terminal, fare].forEach((input, i) => {
-    input.addEventListener('input', () => {
-        const errors = ['.dep-error', '.dis-error', '.date-error', '.departure-time-error', '.destination-time-error', '.bustype-error', '.terminal-error', '.fare-error'];
-        document.querySelector(errors[i]).innerText = '';
-    });
-});
+if (fare) {
+    fare.addEventListener('input', () => {
+        document.querySelector('.fare-error').innerText = '';
+    })
+}
