@@ -71,6 +71,7 @@ if (closeIcon1) {
     closeIcon1.addEventListener('click', () => {
         forgetModal1.style.display = 'none';
         document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto'
     });
 
 }
@@ -80,12 +81,16 @@ if (closeIcon1) {
 function showForgetModal() {
     document.getElementById('forget-modal-1').style.display = 'flex';
     document.body.classList.add('modal-open');
+
 }
 
 if (ForgetBtn) {
     ForgetBtn.addEventListener('click', function (e) {
+        emailmodaloverlay.style.display = 'none';
+        document.querySelector('.invalid-forget-email').innerText = '';
         e.preventDefault()
         showForgetModal()
+
     })
 }
 
@@ -116,7 +121,6 @@ let confirmationResult = null;
 window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
     size: 'invisible',
     callback: (response) => {
-        // reCAPTCHA solved
         sendOTP();
     }
 });
@@ -124,7 +128,7 @@ recaptchaVerifier.render();
 
 
 
-// ✅ Phone Validation + Firebase OTP Send
+//  Phone Validation + Firebase OTP Send
 function sendOTP() {
     const phoneValue = phone.value.trim();
     const phoneRegex = /^03\d{9}$/;
@@ -163,7 +167,7 @@ otpBtn.addEventListener('click', (e) => {
 
 
 
-// ✅ OTP Validation + Firebase Confirm
+// OTP Validation + Firebase Confirm
 function verifyOTP() {
     const otpValue = otp.value.trim();
 
@@ -294,6 +298,7 @@ window.CheckForgetValidation = function () {
                 alert('Verification link sent!');
                 forgetModal1.style.display = 'none';
                 document.body.classList.remove('modal-open');
+                document.body.style.overflow = 'auto'
                 forgetEmail.value = "";
             })
             .catch((error) => {

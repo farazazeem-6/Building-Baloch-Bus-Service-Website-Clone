@@ -537,12 +537,14 @@ body.seat-modal-open {
 
 .seat-row-1 {
     display: flex;
+    /* flex-direction: column; */
     gap: 8px;
 
 }
 
 .seat-row-2 {
     display: flex;
+    /* flex-direction: column; */
     margin-bottom: 40px;
     gap: 8px;
 
@@ -550,12 +552,14 @@ body.seat-modal-open {
 
 .seat-row-3 {
     display: flex;
+    /* flex-direction: column; */
     gap: 8px;
 
 }
 
 .seat-row-4 {
     display: flex;
+    /* flex-direction: column; */
     gap: 8px;
 
 }
@@ -812,6 +816,55 @@ select:focus {
     }
 }
 
+@media(max-width:800px) {
+
+    .modal-seat-left-div {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .seat-row-1,
+    .seat-row-2,
+    .seat-row-3,
+    .seat-row-4 {
+        flex-direction: column;
+    }
+
+    .seat {
+        width: 30px;
+        height: 30px;
+        border-radius: 3px;
+        background-color: #ed013c;
+        color: white;
+        font-size: 9px;
+        font-weight: 400;
+    }
+
+    .selected-seat .box-seat {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .female-seat .box-seat {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .available-seat .box-seat {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+    .reserved-seat .box-seat {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+
+}
 
 @media (max-width: 768px) {
     .bus-card {
@@ -879,6 +932,63 @@ select:focus {
     }
 }
 
+
+@media(max-width:580px) {
+
+    .modal-seat-left-div {
+        gap: 30px;
+    }
+
+    .total-amount-of-seat {
+        font-family: var(--main-font);
+        font-size: 15px;
+        font-weight: 400;
+        color: #000;
+        margin-top: 20px;
+    }
+
+    .total-amount-of-seat p span {
+        font-size: 18px;
+    }
+
+    .seat-counts p {
+        font-size: 16px;
+        font-family: var(--main-font);
+        color: #000;
+        font-weight: 500;
+    }
+
+    .seat-counts p span {
+        font-size: 12px;
+        font-family: var(--main-font);
+        color: #000;
+        font-weight: 400;
+    }
+
+    .modal-seats-div {
+        display: flex;
+        padding: 20px 30px 0px 30px;
+        justify-content: space-between;
+    }
+
+    .female-seat p {
+        font-size: 14px;
+    }
+
+    .reserved-seat p {
+        font-size: 14px;
+    }
+
+    .available-seat p {
+        font-size: 14px;
+    }
+
+    .selected-seat p {
+        font-size: 14px;
+    }
+
+}
+
 @media(max-width:550px) {
     .booking-heading {
         display: flex;
@@ -919,4 +1029,85 @@ select:focus {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+@media(max-width:430px) {
+
+    .modal-seat-left-div {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .seat-row-1,
+    .seat-row-2,
+    .seat-row-3,
+    .seat-row-4 {
+        flex-direction: column;
+    }
+
+    .seat {
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+        background-color: #ed013c;
+        color: white;
+        font-size: 7px;
+        font-weight: 300;
+    }
+
+    .selected-seat .box-seat {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    .female-seat .box-seat {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    .available-seat .box-seat {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    .reserved-seat .box-seat {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    .seat-modal-btns {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .seat-modal-btns a {
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 300;
+
+    }
+
+    .modal-cross-icon img {
+        width: 20px;
+    }
+
+    #modal-back-btn {
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .seat-modal-footer a {
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+
 }
